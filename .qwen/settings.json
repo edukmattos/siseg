@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "stitch": {
+      "type": "http",
+      "url": "https://stitch.googleapis.com/mcp",
+      "headers": {
+        "X-Goog-Api-Key": "AQ.Ab8RN6J1SM5aK5Zp_D4B8fZFl1ArEdCT4ytFpDIju9-Xhg88Vg"
+      }
+    },
+    "supabase": {
+      "httpUrl": "https://mcp.supabase.com/mcp?project_ref=vbpunolnqikllwanfvxi",
+      "headers": {
+        "Authorization": "Bearer ${SUPABASE_PERSONAL_ACCESS_TOKEN}"
+      },
+      "timeout": 120000
+    }
+  },
+  "$version": 3
+}

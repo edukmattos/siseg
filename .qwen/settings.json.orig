@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "supabase": {
+      "httpUrl": "https://mcp.supabase.com/mcp?project_ref=vbpunolnqikllwanfvxi",
+      "headers": {
+        "apikey": "${SUPABASE_ANON_KEY}",
+        "Authorization": "Bearer ${SUPABASE_SERVICE_ROLE_KEY}"
+      },
+      "timeout": 120000
+    }
+  }
+}
