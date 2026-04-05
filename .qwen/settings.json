@@ -15,5 +15,12 @@
       "timeout": 120000
     }
   },
-  "$version": 3
+  "$version": 3,
+  "permissions": {
+    "allow": [
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push)"
+    ]
+  }
 }
