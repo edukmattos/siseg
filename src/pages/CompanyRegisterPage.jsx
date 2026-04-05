@@ -182,7 +182,7 @@ function CompanyRegisterPage({ onBack }) {
               {/* ===== SEÇÃO 1: DADOS DO RESPONSÁVEL ===== */}
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-sm flex-shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-sm shrink-0">1</div>
                   <h3 className="text-sm font-headline font-bold text-primary uppercase tracking-wider">
                     Dados do Responsável
                   </h3>
@@ -306,7 +306,7 @@ function CompanyRegisterPage({ onBack }) {
               {/* ===== SEÇÃO 2: DADOS DA EMPRESA ===== */}
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-sm flex-shrink-0">2</div>
+                  <div className="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-sm shrink-0">2</div>
                   <h3 className="text-sm font-headline font-bold text-primary uppercase tracking-wider">
                     Configuração da Empresa
                   </h3>

@@ -226,7 +226,7 @@ function SuperAdminDashboardFinance({ onBack }) {
   }
 
   return (
-    <div className="w-full pt-6 px-6 pb-12">
+    <div className="w-full max-w-full overflow-hidden">
         {/* Page Header - Compacto */}
         <div className="flex justify-between items-center mb-6">
           <div>

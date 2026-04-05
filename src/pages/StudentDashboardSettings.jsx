@@ -200,7 +200,7 @@ function StudentDashboardSettings({ onBack }) {
 
       {/* Main Content */}
       <main className="md:pl-64 pt-16 min-h-screen">
-        <div className="w-full px-4 py-6">
+        <div className="w-full p-6">
           {/* Header */}
           <header className="mb-10">
             <h1 className="text-4xl font-headline font-extrabold tracking-tight text-primary mb-2">
@@ -424,7 +424,7 @@ function StudentDashboardSettings({ onBack }) {
                   <span className="material-symbols-outlined text-green-600" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span>
                 </div>
                 <div className="w-full bg-surface-container-highest h-2 rounded-full mb-3 overflow-hidden">
-                  <div className="bg-gradient-to-r from-primary to-primary-container h-full rounded-full transition-all" style={{ width: `${complianceScore}%` }}></div>
+                  <div className="bg-linear-to-r from-primary to-primary-container h-full rounded-full transition-all" style={{ width: `${complianceScore}%` }}></div>
                 </div>
                 <p className="text-[10px] text-on-surface-variant leading-relaxed">
                   Seu perfil está {complianceScore}% em conformidade com a política da empresa. Certifique-se de que sua autenticação de dois fatores está regularmente auditada.

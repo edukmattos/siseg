@@ -17,11 +17,7 @@ function SuperAdminLayout({ children, currentTab, onNavigate, onBack, hideHeader
       />
 
       {/* Conteúdo Dinâmico */}
-      <main className={`min-h-screen ${
-        fullScreen
-          ? 'ml-64 p-0'
-          : 'ml-64 pt-8 px-8 pb-12'
-      }`}>
+      <main className={`min-h-screen ml-64 p-6`}>
         {children}
       </main>
     </div>

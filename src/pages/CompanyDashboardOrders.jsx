@@ -168,7 +168,7 @@ function CompanyDashboardOrders({ onBack, useLayout = true }) {
   // Removido: getItemsBadgeColor não é mais necessário
 
   const content = (
-    <div className="w-full space-y-4 overflow-hidden py-4 pl-0 pr-2">
+    <div className="w-full space-y-4 overflow-hidden">
       {/* Title and Context */}
       <div className="flex justify-between items-end w-full">
         <div>
@@ -229,7 +229,7 @@ function CompanyDashboardOrders({ onBack, useLayout = true }) {
                 <h2 className="text-4xl font-extrabold font-headline text-primary">{stats.activeLicenses}</h2>
                 <div className="mt-6 space-y-3">
                   <div className="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
-                    <div className="bg-gradient-to-r from-primary to-primary-container h-full rounded-full" style={{ width: `${stats.licenseCapacity}%` }}></div>
+                    <div className="bg-linear-to-r from-primary to-primary-container h-full rounded-full" style={{ width: `${stats.licenseCapacity}%` }}></div>
                   </div>
                   <p className="text-xs text-slate-500 font-medium">{stats.licenseCapacity}% da capacidade contratada utilizada</p>
                 </div>

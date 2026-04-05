@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react'
 import { CartProvider } from './context/CartContext'
 import { AuthProvider, useAuth } from './context/AuthContext'
+import { supabase } from './lib/supabase'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import CourseCard from './components/CourseCard'
 import CartDrawer from './components/CartDrawer'
 import Footer from './components/Footer'
 import LoginPage from './pages/LoginPage'
+import AuthPasswordForgotPage from './pages/AuthPasswordForgotPage'
+import AuthPasswordResetPage from './pages/AuthPasswordResetPage'
 import CompanyRegisterPage from './pages/CompanyRegisterPage'
 import CompanyDashboard from './pages/CompanyDashboard'
 import CompanyDashboardOrders from './pages/CompanyDashboardOrders'
@@ -20,84 +23,11 @@ import NewCoursePage from './pages/NewCoursePage'
 import CourseDetailsPage from './pages/CourseDetailsPage'
 import './App.css'
 
-const courses = [
-  {
-    id: 1,
-    nr: 'NR-10',
-    level: 'Básico',
-    title: 'NR-10 Segurança em Instalações Elétricas',
-    hours: '40 Horas',
-    modality: 'Online',
-    modalityIcon: 'devices',
-    priceCents: 18900,
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuApYdv-pXcx1aCiTXj6JYwPZGE8y0kDRpjjNUrXCA1_ke3LoPI_axhtlR6muoBmlAMIwpmQLOMAkoTRGgCVmEW8WAzgMxCWUEQl7DKeEfeojPp4HVHlex34OVSBtYcmUaZpDNpIqxgAzj-6LCg3Wai-cB27EXqfRpYjcqrmg1UtvUTnj0NKf_AmJGD9SABae4Edt9tpdvnAI5psjjxSP5fizyF322VcnDbBDDUjADE9S8q_hU47zaNVx_My3Ur7iYP2U8QQayxXCvw',
-    hasESocial: true,
-  },
-  {
-    id: 2,
-    nr: 'NR-35',
-    level: 'Prático',
-    title: 'NR-35 Trabalho em Altura',
-    hours: '08 Horas',
-    modality: 'Híbrido',
-    modalityIcon: 'groups',
-    priceCents: 24500,
-    image: 'https://lh3.googleusercontent.com/AB6AXuAs-aY1JYIgqMqGaPgGLu_3fV9zAQ8H3KfwwCBw3OCwT48Gm24-0S7QxPWDOw81xR7ug4hIwY3PyraOLg7gJ3CvJgjQjZqK2y2lv-5bZoGfNdW9ts7SkcRh4Bimu4V53axPDFV91knZRsukzbOMH7Q0WU9KK69vc-MlZDe4UC6vIiiNA03T2KIDGNdbP7PpgpGkDRJDewGGn8wqfvWgdK1Dm12doSmUa1sCIO-p2-xtcBtGxhbXCq2McvjdCkIjxNPSip6Y9sBTszA',
-    hasESocial: true,
-  },
-  {
-    id: 3,
-    nr: 'NR-07',
-    level: 'Reciclagem',
-    title: 'NR-07 Primeiros Socorros Básico',
-    hours: '04 Horas',
-    modality: 'Online',
-    modalityIcon: 'devices',
-    priceCents: 9500,
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBgneVYiiwNS4WuBgksZW4XKrewhzlM9RlXCBnNc6ufPnM62t7hwCQ6c61nKCmPS4x-A4810IgtGRGOItgWCxNLeUoLBbXnFxUjbGb2yRj3MqesRYVRGnKV0ndreEDkg36wwRvQWfaeIzolxdJAjLORA-XKU_uztqw85O47Fn1LHSPpX9qQC4nMJw6_UksXCFCJ10Kx5AH5E9644WpJff9gn41QoOhun1LdaEAuuaJq2UVJFjnre24fW9QC9s0bmefwsOpmR9VEniQ',
-    hasESocial: true,
-  },
-  {
-    id: 4,
-    nr: 'NR-12',
-    level: 'Especialista',
-    title: 'NR-12 Segurança em Máquinas e Equipamentos',
-    hours: '16 Horas',
-    modality: 'Híbrido',
-    modalityIcon: 'groups',
-    priceCents: 31200,
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuACvoFNS8ooBFFvklPKDwQip_ZD95FMKjZMchIxP3U4hLDJztHoOp_RMlY1iXW9awfVEm-WDgFt4Kr0Ljgj_7zxzT_D_oFXxcsMJETIK1QYcqQUrePJjSwu-oqjV1CvOMQwmPX1eXjcWYs0_-tx-S74L9iXac7J23WzpwSd9-iC7NNbYLVBmFGE3knN8CkPVzIPf_CZKk16o4xBwJgDavIKw72SxMuGlxYjXtmTs-AqNgS8PDQc6Q9-HweXCZzNCU0gYno9hrFbKME',
-    hasESocial: false,
-  },
-  {
-    id: 5,
-    nr: 'NR-18',
-    level: 'Integração',
-    title: 'NR-18 Segurança na Indústria da Construção',
-    hours: '06 Horas',
-    modality: 'Online',
-    modalityIcon: 'devices',
-    priceCents: 15600,
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAR5GLsvqOxrQQtirhMX8Q-P235Jr7XwXO4ONNkeUuxcHByp4PenbOjqcFI4HBe8sv1kyUDnRFYKApEzcoq-D6HAJ2QS5_y3MiANm1Hpk_1zHPHmy2hJfHdC_03HmvWhQxhL8MnaDYKyBxrtHNiu7e0lnHLgwpNM7i9FqFNai57rVrZIakMwihQiUiruqIt_5eAGWF4YuS8I5SZPsU69KVk3UbDO9fzVQ52pqO_C-AAAAGzjjwvAMaVOeN3ACkDo83V7DgPNEVs7ec',
-    hasESocial: false,
-  },
-  {
-    id: 6,
-    nr: 'NR-05',
-    level: 'CIPA',
-    title: 'Comissão Interna de Prevenção de Acidentes',
-    hours: '20 Horas',
-    modality: 'Online',
-    modalityIcon: 'devices',
-    priceCents: 21000,
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAyum5nfgXFC2ZWeK27crDM4ps_ctPXko0QCggWRwXLG9406AJB9tS_yTfvZlzKFwqxV81kjOSHJQhGy_ILay_y4WnPA3gNIaiOwX-PpQhUrDE6CKzR0Hw9jruKMa9X9pu-P81R76jbgr1b8DxBVIA6YhozgMLWj96UmaMR0fONb2zijhLKzVBjxFhKRIMbksEEseekTnM12SxKvyTJJzWQyW_UAH06itkEQiGAJQa6xYjTUaDOpc4VTmfd9jIriN3bkmiD21-jh4',
-    hasESocial: true,
-  },
-]
-
 function AppContent() {
   const { isAuthenticated, isStudent, isSuperAdmin, isInstructor, user } = useAuth()
   const [showLogin, setShowLogin] = useState(false)
+  const [showPasswordForgot, setShowPasswordForgot] = useState(false)
+  const [showPasswordReset, setShowPasswordReset] = useState(false)
   const [showCompanyRegister, setShowCompanyRegister] = useState(false)
   const [showDashboard, setShowDashboard] = useState(false)
   const [showStudentDashboard, setShowStudentDashboard] = useState(false)
@@ -109,10 +39,48 @@ function AppContent() {
   const [showTeacherManagement, setShowTeacherManagement] = useState(false)
   const [selectedCourse, setSelectedCourse] = useState(null)
   const [filters, setFilters] = useState({ category: null, modalities: null, level: null })
+  const [courses, setCourses] = useState([])
+  const [loadingCourses, setLoadingCourses] = useState(true)
 
   // Redirecionar para dashboard correto após login
+  // Detectar recuperação de senha via hash na URL
+  useEffect(() => {
+    const hash = window.location.hash
+
+    // Verificar se é uma rota de curso (#/course/ID)
+    const courseMatch = hash.match(/^#\/course\/(.+)$/)
+    if (courseMatch) {
+      const courseId = courseMatch[1]
+      console.log('📚 Curso selecionado via URL:', courseId)
+      setSelectedCourse({ id: courseId })
+      setShowLogin(false)
+      setShowDashboard(false)
+      setShowStudentDashboard(false)
+      setShowSuperAdminDashboard(false)
+      setShowInstructorDashboard(false)
+      return
+    }
+
+    if (hash && (hash.includes('access_token') || hash.includes('type=recovery'))) {
+      console.log('🔑 Detectado hash de recuperação de senha')
+      setShowPasswordReset(true)
+      setShowLogin(false)
+      setShowSuperAdminDashboard(false)
+      setShowInstructorDashboard(false)
+      setShowStudentDashboard(false)
+      setShowDashboard(false)
+      return
+    }
+  }, [window.location.hash])
+
   /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
+    // Não redirecionar se estiver no modo de reset de senha
+    if (showPasswordReset) {
+      console.log('   ⏭️ Modo de reset de senha ativo, pulando redirecionamento...')
+      return
+    }
+
     console.log('🔄 App.jsx useEffect - Verificando redirecionamento:')
     console.log('   isAuthenticated:', isAuthenticated)
     console.log('   user:', user)
@@ -161,6 +129,50 @@ function AppContent() {
   }, [isAuthenticated, user, isStudent, isSuperAdmin, isInstructor])
   /* eslint-enable react-hooks/set-state-in-effect */
 
+  // Buscar cursos do Supabase
+  useEffect(() => {
+    async function loadCourses() {
+      try {
+        const { data, error } = await supabase
+          .from('courses')
+          .select('*')
+          .eq('is_active', true)
+
+        if (error) {
+          console.error('Erro ao buscar cursos:', error)
+        } else {
+          // Transformar dados do banco para o formato esperado pelo CourseCard
+          const modalityIcons = {
+            'Online': 'devices',
+            'Presencial': 'people',
+            'Híbrido': 'groups',
+          }
+
+          const transformedCourses = (data || []).map(course => ({
+            id: course.id,
+            nr: course.nr_code || 'NR',
+            level: course.level || '',
+            title: course.title,
+            hours: `${course.workload_hours || 0} Horas`,
+            modality: course.modality || 'Online',
+            modalityIcon: modalityIcons[course.modality] || 'devices',
+            priceCents: course.price_cents || 0,
+            image: course.image_url || 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80',
+            hasESocial: course.has_esocial || false,
+          }))
+
+          setCourses(transformedCourses)
+        }
+      } catch (err) {
+        console.error('Erro ao carregar cursos:', err)
+      } finally {
+        setLoadingCourses(false)
+      }
+    }
+
+    loadCourses()
+  }, [])
+
   function handleFilterChange(newFilters) {
     setFilters(prev => ({ ...prev, ...newFilters }))
   }
@@ -201,6 +213,8 @@ function AppContent() {
 
   function handleBackToCatalog() {
     setShowLogin(false)
+    setShowPasswordForgot(false)
+    setShowPasswordReset(false)
     setShowCompanyRegister(false)
     setShowDashboard(false)
     setShowStudentDashboard(false)
@@ -211,6 +225,8 @@ function AppContent() {
     setShowAuditDashboard(false)
     setShowTeacherManagement(false)
     setSelectedCourse(null)
+    // Limpar hash da URL
+    window.location.hash = ''
     // Se ainda estiver autenticado como student, redireciona de volta para o dashboard
     if (isAuthenticated && isStudent) {
       setShowStudentDashboard(true)
@@ -225,13 +241,15 @@ function AppContent() {
     }
   }
 
-  function handleViewDetails(course) {
-    setSelectedCourse(course)
+  // Mostrar página de detalhes do curso (busca dados do banco)
+  if (selectedCourse && selectedCourse.id) {
+    return <CourseDetailsPage courseId={selectedCourse.id} onBack={handleBackToCatalog} />
   }
 
-  // Show course details page
-  if (selectedCourse) {
-    return <CourseDetailsPage course={selectedCourse} onBack={handleBackToCatalog} />
+  // Atualizar URL quando seleciona um curso
+  function handleViewDetails(course) {
+    setSelectedCourse({ id: course.id })
+    window.location.hash = `#/course/${course.id}`
   }
 
   // Show login page
@@ -240,6 +258,30 @@ function AppContent() {
       <LoginPage
         onSwitchToRegister={handleSwitchToRegister}
         onBack={handleBackToCatalog}
+        onForgotPassword={() => { setShowLogin(false); setShowPasswordForgot(true) }}
+      />
+    )
+  }
+
+  // Show password forgot page
+  if (showPasswordForgot) {
+    return (
+      <AuthPasswordForgotPage
+        onBack={() => { setShowPasswordForgot(false); setShowLogin(true) }}
+      />
+    )
+  }
+
+  // Show password reset page
+  if (showPasswordReset) {
+    return (
+      <AuthPasswordResetPage
+        onBack={() => {
+          setShowPasswordReset(false)
+          setShowLogin(true)
+          // Limpar o hash da URL
+          window.history.replaceState(null, '', window.location.pathname)
+        }}
       />
     )
   }
@@ -312,7 +354,7 @@ function AppContent() {
                       "url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80')",
                   }}
                 ></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-r from-primary via-primary/80 to-transparent"></div>
                 <div className="relative z-10">
                   <span className="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-4 inline-block">
                     Destaque do Mês
@@ -363,7 +405,10 @@ function AppContent() {
                 Catálogo de Treinamentos
               </h2>
               <p className="text-on-surface-variant">
-                Exibindo {filteredCourses.length} curso{filteredCourses.length !== 1 ? 's' : ''} encontrado{filteredCourses.length !== 1 ? 's' : ''}
+                {loadingCourses
+                  ? 'Carregando cursos...'
+                  : `Exibindo ${filteredCourses.length} curso${filteredCourses.length !== 1 ? 's' : ''} encontrado${filteredCourses.length !== 1 ? 's' : ''}`
+                }
               </p>
             </div>
             <div className="flex gap-4">
@@ -376,13 +421,28 @@ function AppContent() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-            {filteredCourses.map((course) => (
-              <CourseCard key={course.id} course={course} onViewDetails={handleViewDetails} />
-            ))}
-          </div>
+          {loadingCourses ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+              {[1, 2, 3].map(i => (
+                <div key={i} className="bg-surface-container-lowest rounded-xl overflow-hidden h-96 animate-pulse">
+                  <div className="h-48 bg-surface-container-high" />
+                  <div className="p-6 space-y-4">
+                    <div className="h-6 bg-surface-container-high rounded w-3/4" />
+                    <div className="h-4 bg-surface-container-high rounded w-1/2" />
+                    <div className="h-10 bg-surface-container-high rounded w-full" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+              {filteredCourses.map((course) => (
+                <CourseCard key={course.id} course={course} onViewDetails={handleViewDetails} />
+              ))}
+            </div>
+          )}
 
-          {filteredCourses.length === 0 && (
+          {!loadingCourses && filteredCourses.length === 0 && (
             <div className="text-center py-16">
               <span className="material-symbols-outlined text-6xl text-outline-variant mb-4">search_off</span>
               <p className="text-xl font-headline font-bold text-on-surface-variant">Nenhum curso encontrado</p>

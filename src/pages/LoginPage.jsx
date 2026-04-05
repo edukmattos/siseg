@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 
-function LoginPage({ onSwitchToRegister, onBack }) {
+function LoginPage({ onSwitchToRegister, onBack, onForgotPassword }) {
   const { signIn, loading } = useAuth()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -24,8 +24,8 @@ function LoginPage({ onSwitchToRegister, onBack }) {
     <div className="bg-surface text-on-surface min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-5%] w-[60%] h-[60%] rounded-full bg-gradient-to-br from-primary/5 to-transparent blur-3xl" />
-        <div className="absolute bottom-[-10%] right-[-5%] w-[50%] h-[50%] rounded-full bg-gradient-to-tl from-secondary-container/20 to-transparent blur-3xl" />
+        <div className="absolute top-[-10%] left-[-5%] w-[60%] h-[60%] rounded-full bg-linear-to-br from-primary/5 to-transparent blur-3xl" />
+        <div className="absolute bottom-[-10%] right-[-5%] w-[50%] h-[50%] rounded-full bg-linear-to-tl from-secondary-container/20 to-transparent blur-3xl" />
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -63,9 +63,7 @@ function LoginPage({ onSwitchToRegister, onBack }) {
               <h2 className="font-headline font-bold text-2xl text-on-surface mb-1">
                 Bem-vindo de volta
               </h2>
-              <p className="font-body text-on-surface-variant text-sm">
-                Autenticação: Login
-              </p>
+              
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -83,7 +81,7 @@ function LoginPage({ onSwitchToRegister, onBack }) {
                   className="block font-label text-sm font-semibold text-on-surface-variant tracking-wide"
                   htmlFor="email"
                 >
-                  E-MAIL CORPORATIVO
+                  E-MAIL
                 </label>
                 <div className="relative group">
                   <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline transition-colors group-focus-within:text-primary" style={{ fontSize: 20 }}>
@@ -112,6 +110,7 @@ function LoginPage({ onSwitchToRegister, onBack }) {
                   </label>
                   <button
                     type="button"
+                    onClick={onForgotPassword}
                     className="font-label text-xs font-semibold text-primary hover:opacity-80 transition-opacity"
                   >
                     Esqueceu a senha?
@@ -154,36 +153,11 @@ function LoginPage({ onSwitchToRegister, onBack }) {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-4 px-6 bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline font-bold rounded-lg shadow-lg hover:opacity-95 transform transition-all active:scale-95 duration-200 disabled:opacity-50"
+                className="w-full py-4 px-6 bg-linear-to-br from-primary to-primary-container text-on-primary font-headline font-bold rounded-lg shadow-lg hover:opacity-95 transform transition-all active:scale-95 duration-200 disabled:opacity-50"
               >
                 {loading ? 'Entrando...' : 'Entrar'}
               </button>
             </form>
-
-            {/* SSO Separator */}
-            <div className="relative my-8">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-outline-variant opacity-15" />
-              </div>
-              <div className="relative flex justify-center text-xs">
-                <span className="px-3 bg-surface-container-lowest text-on-surface-variant font-label font-medium">
-                  ENTERPRISE COMPLIANCE SSO
-                </span>
-              </div>
-            </div>
-
-            {/* SSO Buttons */}
-            <div className="space-y-3">
-              <button
-                type="button"
-                className="w-full py-3 px-6 border border-outline-variant rounded-lg font-body text-sm font-medium text-on-surface-variant hover:bg-surface-container-low transition-colors flex items-center justify-center gap-2"
-              >
-                <span className="material-symbols-outlined text-lg">
-                  business
-                </span>
-                Entrar com SSO Corporativo
-              </button>
-            </div>
           </div>
 
           {/* Footer Link */}

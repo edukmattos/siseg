@@ -263,7 +263,7 @@ function CompanyDashboard({ onBack }) {
               <p className="text-on-surface-variant font-medium mb-1">Certificados</p>
               <h3 className="text-4xl font-extrabold text-primary font-headline">{stats.certified}%</h3>
               <div className="mt-4 w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
-                <div className="bg-gradient-to-r from-primary to-primary-container h-full rounded-full" style={{ width: `${stats.certified}%` }}></div>
+                <div className="bg-linear-to-r from-primary to-primary-container h-full rounded-full" style={{ width: `${stats.certified}%` }}></div>
               </div>
             </div>
             <div className="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10 shadow-sm">

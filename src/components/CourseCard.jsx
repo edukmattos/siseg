@@ -90,16 +90,14 @@ function CourseCard({ course, onViewDetails }) {
             </button>
             <button
               onClick={handleAddToCart}
-              className={`p-3 rounded-xl transition-all active:scale-[0.98] flex items-center justify-center ${
-                isAdding
+              className={`p-3 rounded-xl transition-all active:scale-[0.98] flex items-center justify-center ${isAdding
                   ? 'bg-green-600 text-white scale-110'
                   : 'bg-primary text-white hover:opacity-90'
-              }`}
+                }`}
             >
               <span
-                className={`material-symbols-outlined transition-transform duration-300 ${
-                  isAdding ? 'animate-bounce' : ''
-                }`}
+                className={`material-symbols-outlined transition-transform duration-300 ${isAdding ? 'animate-bounce' : ''
+                  }`}
               >
                 {isAdding ? 'check' : 'add_shopping_cart'}
               </span>

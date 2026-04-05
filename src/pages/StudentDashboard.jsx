@@ -180,7 +180,7 @@ function StudentDashboard({ onBack, onShowSettings }) {
 
       {/* Main Content */}
       <main className="md:pl-64 pt-16 min-h-screen">
-        <div className="w-full px-4 py-6">
+        <div className="w-full p-6">
           {/* Hero Section */}
           <header className="mb-12 relative overflow-hidden bg-primary-container p-10 rounded-2xl">
             <div className="absolute top-0 right-0 w-1/3 h-full opacity-10">
@@ -296,7 +296,7 @@ function StudentDashboard({ onBack, onShowSettings }) {
                                 className="w-full h-full object-cover"
                                 src={enrollment.course?.image_url || 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80'}
                               />
-                              <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+                              <div className="absolute inset-0 bg-linear-to-t from-primary/60 to-transparent"></div>
                               <span className="absolute bottom-4 left-4 bg-white/20 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest border border-white/30">
                                 {enrollment.course?.nr_code}
                               </span>
@@ -314,7 +314,7 @@ function StudentDashboard({ onBack, onShowSettings }) {
                                 </div>
                                 <div className="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
                                   <div
-                                    className="h-full bg-gradient-to-r from-primary to-primary-container rounded-full transition-all"
+                                    className="h-full bg-linear-to-r from-primary to-primary-container rounded-full transition-all"
                                     style={{ width: `${enrollment.progress_percentage || 0}%` }}
                                   ></div>
                                 </div>

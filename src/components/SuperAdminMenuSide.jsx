@@ -5,7 +5,7 @@ function SuperAdminMenuSide({ onNavigate, currentTab, onBack }) {
 
   const menuItems = [
     { id: 'overview', label: 'Dashboard', icon: 'dashboard' },
-    { id: 'courses', label: 'Cursos', icon: 'menu_book' },
+    { id: 'catalog', label: 'Catálogo Global', icon: 'menu_book' },
     { id: 'companies', label: 'Empresas', icon: 'domain' },
     { id: 'instructors', label: 'Instrutores', icon: 'school' },
     { id: 'finance', label: 'Financeiro', icon: 'payments' },

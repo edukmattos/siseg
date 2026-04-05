@@ -39,6 +39,103 @@ function NewCoursePage({ onBack, onSuccess }) {
     block_video_skip: true,
   })
 
+  // Etapa 2: Módulos
+  const [modules, setModules] = useState([
+    {
+      id: 1,
+      title: '',
+      description: '',
+      order_index: 1,
+      lessons: [
+        {
+          id: 1,
+          title: '',
+          type: 'video', // video, pdf, quiz
+          content_url: '',
+          duration_minutes: 0,
+          order_index: 1,
+        }
+      ]
+    }
+  ])
+
+  function addModule() {
+    setModules(prev => [
+      ...prev,
+      {
+        id: Date.now(),
+        title: '',
+        description: '',
+        order_index: prev.length + 1,
+        lessons: []
+      }
+    ])
+  }
+
+  function removeModule(moduleId) {
+    setModules(prev => prev.filter(m => m.id !== moduleId))
+  }
+
+  function updateModule(moduleId, field, value) {
+    setModules(prev =>
+      prev.map(m => m.id === moduleId ? { ...m, [field]: value } : m)
+    )
+  }
+
+  function addLesson(moduleId) {
+    setModules(prev =>
+      prev.map(m => {
+        if (m.id === moduleId) {
+          return {
+            ...m,
+            lessons: [
+              ...m.lessons,
+              {
+                id: Date.now(),
+                title: '',
+                type: 'video',
+                content_url: '',
+                duration_minutes: 0,
+                order_index: m.lessons.length + 1,
+              }
+            ]
+          }
+        }
+        return m
+      })
+    )
+  }
+
+  function removeLesson(moduleId, lessonId) {
+    setModules(prev =>
+      prev.map(m => {
+        if (m.id === moduleId) {
+          return {
+            ...m,
+            lessons: m.lessons.filter(l => l.id !== lessonId)
+          }
+        }
+        return m
+      })
+    )
+  }
+
+  function updateLesson(moduleId, lessonId, field, value) {
+    setModules(prev =>
+      prev.map(m => {
+        if (m.id === moduleId) {
+          return {
+            ...m,
+            lessons: m.lessons.map(l =>
+              l.id === lessonId ? { ...l, [field]: value } : l
+            )
+          }
+        }
+        return m
+      })
+    )
+  }
+
   function updateFormData(field, value) {
     setFormData(prev => ({ ...prev, [field]: value }))
   }
@@ -66,7 +163,16 @@ function NewCoursePage({ onBack, onSuccess }) {
         level: formData.level,
         modality: formData.modality,
         nr_code: formData.nr_code,
+        instructor_id: user?.id,
+        user_role: user?.role,
       })
+
+      // Verificar se o usuário é instrutor
+      if (!user?.id) {
+        setError('Usuário não autenticado. Faça login novamente.')
+        setLoading(false)
+        return
+      }
 
       const { data: courseData, error: courseError } = await supabase
         .from('courses')
@@ -82,13 +188,63 @@ function NewCoursePage({ onBack, onSuccess }) {
           target_audience: formData.target_audience?.trim() || null,
           program_content: formData.program_content?.trim() || null,
           prerequisites: formData.prerequisites ? formData.prerequisites.split(',').map(p => p.trim()).filter(Boolean) : [],
-          instructor_id: user?.id,
+          instructor_id: user.id, // Garantir que o ID é enviado
           is_active: false,
         })
         .select()
         .single()
 
       if (courseError) throw courseError
+
+      console.log('✅ Curso criado com ID:', courseData.id)
+
+      // Salvar módulos e aulas
+      if (modules.length > 0) {
+        console.log('📚 Salvando módulos:', modules.length)
+
+        for (const module of modules) {
+          // Criar módulo
+          const { data: moduleData, error: moduleError } = await supabase
+            .from('course_modules')
+            .insert({
+              course_id: courseData.id,
+              title: module.title || `Módulo ${module.order_index}`,
+              description: module.description || null,
+              order_index: module.order_index,
+            })
+            .select()
+            .single()
+
+          if (moduleError) {
+            console.warn('⚠️ Erro ao salvar módulo:', moduleError)
+            continue
+          }
+
+          console.log('✅ Módulo criado:', moduleData.id)
+
+          // Salvar aulas do módulo
+          if (module.lessons && module.lessons.length > 0) {
+            for (const lesson of module.lessons) {
+              const { error: lessonError } = await supabase
+                .from('course_lessons')
+                .insert({
+                  module_id: moduleData.id,
+                  title: lesson.title || `Aula ${lesson.order_index}`,
+                  type: lesson.type || 'video',
+                  content_url: lesson.content_url || null,
+                  duration_minutes: lesson.duration_minutes || 0,
+                  order_index: lesson.order_index,
+                })
+
+              if (lessonError) {
+                console.warn('⚠️ Erro ao salvar aula:', lessonError)
+              }
+            }
+          }
+        }
+
+        console.log('✅ Todos os módulos e aulas salvos!')
+      }
 
       // Salvar configurações de conformidade na tabela course_settings (se existir)
       // ou como metadata no curso
@@ -358,45 +514,165 @@ function NewCoursePage({ onBack, onSuccess }) {
         <div className="flex justify-between items-end">
           <div>
             <h3 className="font-headline font-extrabold text-primary text-xl flex items-center gap-2">
-              <span className="material-symbols-outlined text-primary-container">cloud_upload</span>
-              Acervo Didático
+              <span className="material-symbols-outlined text-primary-container">account_tree</span>
+              Estrutura de Módulos
             </h3>
             <p className="text-on-surface-variant text-sm mt-2">
-              Em desenvolvimento. Em breve você poderá adicionar módulos e videoaulas aqui.
+              Organize o conteúdo do curso em módulos e aulas.
             </p>
           </div>
+          <button
+            onClick={addModule}
+            className="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-lg font-semibold hover:opacity-90 transition-opacity"
+          >
+            <span className="material-symbols-outlined text-lg">add</span>
+            <span>Adicionar Módulo</span>
+          </button>
         </div>
 
-        <div className="grid grid-cols-12 gap-6">
-          <div className="col-span-7 bg-surface-container-lowest p-12 rounded-xl shadow-sm">
-            <div className="border-2 border-dashed border-outline-variant/50 rounded-xl p-12 flex flex-col items-center justify-center text-center hover:bg-surface-container-low transition-colors cursor-pointer group">
-              <div className="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <span className="material-symbols-outlined text-primary text-3xl">video_library</span>
+        <div className="space-y-6">
+          {modules.map((module, moduleIndex) => (
+            <div key={module.id} className="bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-outline-variant/10">
+              {/* Module Header */}
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-primary font-bold">
+                    {moduleIndex + 1}
+                  </div>
+                  <input
+                    type="text"
+                    value={module.title}
+                    onChange={(e) => updateModule(module.id, 'title', e.target.value)}
+                    placeholder={`Título do Módulo ${moduleIndex + 1}`}
+                    className="bg-transparent border-none text-lg font-headline font-bold text-primary focus:ring-0 w-80"
+                  />
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => addLesson(module.id)}
+                    className="p-2 hover:bg-surface-container-high rounded-lg text-outline transition-colors"
+                    title="Adicionar aula"
+                  >
+                    <span className="material-symbols-outlined text-lg">add_circle</span>
+                  </button>
+                  {modules.length > 1 && (
+                    <button
+                      onClick={() => removeModule(module.id)}
+                      className="p-2 hover:bg-error-container rounded-lg text-error transition-colors"
+                      title="Remover módulo"
+                    >
+                      <span className="material-symbols-outlined text-lg">delete</span>
+                    </button>
+                  )}
+                </div>
               </div>
-              <h4 className="font-headline font-bold text-primary">Upload de Videoaula</h4>
-              <p className="text-sm text-on-surface-variant mt-2 max-w-xs mx-auto">
-                Arraste o arquivo MP4 ou selecione do seu computador. (Máx. 2GB)
-              </p>
-              <button className="mt-6 px-6 py-2 bg-primary text-white text-xs font-bold rounded-full uppercase tracking-widest">
-                Selecionar Vídeo
-              </button>
-            </div>
-          </div>
 
-          <div className="col-span-5 bg-surface-container-lowest p-8 rounded-xl shadow-sm flex flex-col justify-between">
-            <div>
-              <h4 className="font-headline font-bold text-primary mb-4">Materiais de Apoio (PDF)</h4>
-              <div className="text-center py-8 text-on-surface-variant">
-                <span className="material-symbols-outlined text-4xl mb-2">description</span>
-                <p className="text-sm">Nenhum material anexado</p>
+              {/* Module Description */}
+              <div className="mb-4">
+                <textarea
+                  value={module.description}
+                  onChange={(e) => updateModule(module.id, 'description', e.target.value)}
+                  placeholder="Descrição do módulo (opcional)"
+                  className="w-full bg-surface-container-low border-none rounded-lg p-3 text-sm text-on-surface focus:ring-0 resize-none"
+                  rows={2}
+                />
+              </div>
+
+              {/* Lessons */}
+              <div className="space-y-3">
+                <p className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">
+                  Aulas ({module.lessons.length})
+                </p>
+                {module.lessons.map((lesson, lessonIndex) => (
+                  <div key={lesson.id} className="bg-surface-container-low rounded-lg p-4 space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-bold text-on-surface-variant">
+                          Aula {lessonIndex + 1}
+                        </span>
+                        <select
+                          value={lesson.type}
+                          onChange={(e) => updateLesson(module.id, lesson.id, 'type', e.target.value)}
+                          className="bg-surface-container-lowest border-none rounded px-2 py-1 text-xs font-medium focus:ring-0"
+                        >
+                          <option value="video">🎥 Vídeo</option>
+                          <option value="pdf">📄 PDF</option>
+                          <option value="quiz">❓ Questionário</option>
+                          <option value="text">📝 Texto</option>
+                        </select>
+                      </div>
+                      <button
+                        onClick={() => removeLesson(module.id, lesson.id)}
+                        className="p-1 hover:bg-error-container rounded text-error transition-colors"
+                        title="Remover aula"
+                      >
+                        <span className="material-symbols-outlined text-sm">close</span>
+                      </button>
+                    </div>
+
+                    <input
+                      type="text"
+                      value={lesson.title}
+                      onChange={(e) => updateLesson(module.id, lesson.id, 'title', e.target.value)}
+                      placeholder="Título da aula"
+                      className="w-full bg-surface-container-lowest border-none rounded-lg p-2 text-sm text-on-surface focus:ring-0"
+                    />
+
+                    {lesson.type === 'video' && (
+                      <>
+                        <input
+                          type="url"
+                          value={lesson.content_url}
+                          onChange={(e) => updateLesson(module.id, lesson.id, 'content_url', e.target.value)}
+                          placeholder="URL do vídeo (YouTube, Vimeo, ou link direto)"
+                          className="w-full bg-surface-container-lowest border-none rounded-lg p-2 text-sm text-on-surface focus:ring-0"
+                        />
+                        <div className="flex items-center gap-2">
+                          <label className="text-xs text-on-surface-variant">Duração (minutos):</label>
+                          <input
+                            type="number"
+                            value={lesson.duration_minutes || ''}
+                            onChange={(e) => updateLesson(module.id, lesson.id, 'duration_minutes', parseInt(e.target.value) || 0)}
+                            className="w-20 bg-surface-container-lowest border-none rounded-lg p-2 text-sm text-on-surface focus:ring-0"
+                            min="0"
+                          />
+                        </div>
+                      </>
+                    )}
+
+                    {lesson.type === 'pdf' && (
+                      <input
+                        type="url"
+                        value={lesson.content_url}
+                        onChange={(e) => updateLesson(module.id, lesson.id, 'content_url', e.target.value)}
+                        placeholder="URL do PDF"
+                        className="w-full bg-surface-container-lowest border-none rounded-lg p-2 text-sm text-on-surface focus:ring-0"
+                      />
+                    )}
+                  </div>
+                ))}
+
+                {module.lessons.length === 0 && (
+                  <button
+                    onClick={() => addLesson(module.id)}
+                    className="w-full py-8 border-2 border-dashed border-outline-variant/50 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:border-primary/50 transition-all flex items-center justify-center gap-2"
+                  >
+                    <span className="material-symbols-outlined">add_circle</span>
+                    <span className="text-sm font-medium">Adicionar primeira aula</span>
+                  </button>
+                )}
               </div>
             </div>
-            <button className="w-full py-3 border-2 border-primary-container text-primary-container text-xs font-bold rounded-lg uppercase tracking-widest hover:bg-primary-container hover:text-white transition-all flex items-center justify-center gap-2">
-              <span className="material-symbols-outlined text-lg">add_circle</span>
-              Anexar Apostila
-            </button>
-          </div>
+          ))}
         </div>
+
+        {modules.length === 0 && (
+          <div className="text-center py-16 bg-surface-container-lowest rounded-xl">
+            <span className="material-symbols-outlined text-6xl text-outline-variant mb-4">folder_open</span>
+            <p className="text-xl font-headline font-bold text-on-surface-variant">Nenhum módulo criado</p>
+            <p className="text-sm text-on-surface-variant mt-1">Clique em "Adicionar Módulo" para começar</p>
+          </div>
+        )}
       </section>
     )
   }

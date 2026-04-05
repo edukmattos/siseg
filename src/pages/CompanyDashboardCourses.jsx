@@ -263,7 +263,7 @@ function CompanyDashboardCourses({ onBack, useLayout = true }) {
   )
 
   const content = (
-    <div className="w-full pt-6 px-6 pb-6 max-w-7xl mx-auto">
+    <div className="w-full max-w-full overflow-hidden">
       {/* Header Section */}
       <div className="mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
         <div className="max-w-2xl">
@@ -274,7 +274,7 @@ function CompanyDashboardCourses({ onBack, useLayout = true }) {
             Administre o inventário de licenças ativas, vincule novos colaboradores a treinamentos regulatórios e monitore o status de conformidade em tempo real.
           </p>
         </div>
-        <button className="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-3 rounded-xl font-semibold flex items-center gap-2 hover:opacity-90 transition-all scale-100 active:scale-95 shadow-lg whitespace-nowrap">
+        <button className="bg-linear-to-br from-primary to-primary-container text-on-primary px-6 py-3 rounded-xl font-semibold flex items-center gap-2 hover:opacity-90 transition-all scale-100 active:scale-95 shadow-lg whitespace-nowrap">
           <span className="material-symbols-outlined">person_add</span>
           Vincular Novo Colaborador
         </button>
@@ -327,7 +327,7 @@ function CompanyDashboardCourses({ onBack, useLayout = true }) {
                     </div>
                     <div className="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-gradient-to-r from-primary to-primary-container transition-all"
+                        className="h-full bg-linear-to-r from-primary to-primary-container transition-all"
                         style={{ width: `${usagePercent}%` }}
                       ></div>
                     </div>
@@ -343,7 +343,7 @@ function CompanyDashboardCourses({ onBack, useLayout = true }) {
             })}
           </div>
         ) : (
-          <div className="bg-gradient-to-br from-primary-fixed/20 to-surface-container-lowest p-12 rounded-xl border-2 border-dashed border-primary/30 text-center">
+          <div className="bg-linear-to-br from-primary-fixed/20 to-surface-container-lowest p-12 rounded-xl border-2 border-dashed border-primary/30 text-center">
             <div className="w-20 h-20 rounded-full bg-primary-fixed flex items-center justify-center mx-auto mb-6">
               <span className="material-symbols-outlined text-5xl text-primary">menu_book</span>
             </div>

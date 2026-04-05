@@ -232,7 +232,7 @@ function CoursePlayer({ course, enrollment, onBack }) {
               </div>
               {/* Custom Progress Bar */}
               <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-white/20">
-                <div className="h-full bg-gradient-to-r from-primary-fixed to-primary w-1/2"></div>
+                <div className="h-full bg-linear-to-r from-primary-fixed to-primary w-1/2"></div>
               </div>
             </div>
 

@@ -5,11 +5,14 @@ import SuperAdminLayout from '../components/SuperAdminLayout'
 import SuperAdminDashboardInstructors from './SuperAdminDashboardInstructors'
 import SuperAdminDashboardAudit from './SuperAdminDashboardAudit'
 import SuperAdminDashboardFinance from './SuperAdminDashboardFinance'
+import SuperAdminCatalogManagement from './SuperAdminCatalogManagement'
+import SuperAdminDashboardCourseDetail from './SuperAdminDashboardCourseDetail'
 
 function SuperAdminDashboard({ onBack }) {
   const { user } = useAuth()
   const [currentTab, setCurrentTab] = useState('overview')
   const [loading, setLoading] = useState(true)
+  const [selectedCourse, setSelectedCourse] = useState(null)
   const [stats, setStats] = useState({
     companies: 0,
     students: 0,
@@ -81,7 +84,7 @@ function SuperAdminDashboard({ onBack }) {
     )
   }
 
-  const isSubPage = currentTab === 'finance' || currentTab === 'instructors' || currentTab === 'audit'
+  const isSubPage = currentTab === 'finance' || currentTab === 'instructors' || currentTab === 'audit' || currentTab === 'catalog' || currentTab === 'courseDetail'
 
   return (
     <SuperAdminLayout
@@ -98,6 +101,17 @@ function SuperAdminDashboard({ onBack }) {
         <SuperAdminDashboardInstructors onBack={onBack} onNavigate={setCurrentTab} />
       ) : currentTab === 'audit' ? (
         <SuperAdminDashboardAudit onBack={onBack} onNavigate={setCurrentTab} />
+      ) : currentTab === 'catalog' ? (
+        <SuperAdminCatalogManagement onShowCourseDetails={(course) => { setSelectedCourse(course); setCurrentTab('courseDetail') }} />
+      ) : currentTab === 'courseDetail' ? (
+        <SuperAdminDashboardCourseDetail
+          courseId={selectedCourse?.id}
+          onBack={() => setCurrentTab('catalog')}
+          onUpdate={() => {
+            setCurrentTab('catalog')
+            setSelectedCourse(null)
+          }}
+        />
       ) : (
         <>
           {/* Page Header */}

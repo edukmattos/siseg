@@ -29,6 +29,20 @@ export function AuthProvider({ children }) {
 
   async function loadSession() {
     try {
+      const hash = window.location.hash
+      
+      // Se há um hash de recovery, processar primeiro
+      if (hash && (hash.includes('access_token') || hash.includes('type=recovery'))) {
+        console.log('🔑 Processando hash de recuperação de senha...')
+        const { error } = await supabase.auth.getSession()
+        if (error) {
+          console.error('Erro ao processar sessão de recovery:', error)
+        }
+        // Não carregamos o usuário aqui - deixamos a página de reset lidar com isso
+        setLoading(false)
+        return
+      }
+
       const { data: { session } } = await supabase.auth.getSession()
       if (session?.user) {
         await loadUserProfile(session.user.id)

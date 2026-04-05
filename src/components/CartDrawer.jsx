@@ -80,7 +80,7 @@ function CartDrawer({ onShowLogin, onShowCompanyRegister }) {
               {items.length === 0 ? (
                 <div className="flex flex-col items-center justify-center h-full text-center">
                   <span className="material-symbols-outlined text-6xl text-outline-variant mb-4">
-                    shopping_cart
+
                   </span>
                   <p className="text-on-surface-variant font-headline font-bold">
                     Carrinho vazio
@@ -97,7 +97,7 @@ function CartDrawer({ onShowLogin, onShowCompanyRegister }) {
                       className="flex gap-4 p-4 bg-surface-container rounded-xl"
                     >
                       {/* Thumbnail */}
-                      <div className="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+                      <div className="w-20 h-20 rounded-lg overflow-hidden shrink-0">
                         <img
                           src={item.image}
                           alt={item.title}
@@ -118,7 +118,7 @@ function CartDrawer({ onShowLogin, onShowCompanyRegister }) {
                           </div>
                           <button
                             onClick={() => removeItem(item.id)}
-                            className="p-1 rounded-lg hover:bg-surface-container-high transition-colors flex-shrink-0"
+                            className="p-1 rounded-lg hover:bg-surface-container-high transition-colors shrink-0"
                           >
                             <span className="material-symbols-outlined text-xs text-on-surface-variant">
                               delete
@@ -171,7 +171,7 @@ function CartDrawer({ onShowLogin, onShowCompanyRegister }) {
               <div className="border-t border-surface-container-high p-6 space-y-4">
                 {/* Subtotal */}
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-on-surface-variant">Subtotal</span>
+                  <span className="text-sm text-on-surface-variant">Sub-total</span>
                   <span className="text-lg font-headline font-extrabold text-primary">
                     R$ {formatPrice(totalPrice)}
                   </span>

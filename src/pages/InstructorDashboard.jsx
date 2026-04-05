@@ -245,7 +245,7 @@ function InstructorDashboard({ onBack, onNewCourse }) {
                   <div className="border-t border-outline-variant/10 w-full"></div>
                 </div>
                 {[40, 65, 50, 85, 70, 95].map((h, i) => (
-                  <div key={i} className="flex-1 bg-gradient-to-t from-primary/20 to-primary rounded-t-lg transition-all hover:opacity-80" style={{ height: `${h}%` }}></div>
+                  <div key={i} className="flex-1 bg-linear-to-t from-primary/20 to-primary rounded-t-lg transition-all hover:opacity-80" style={{ height: `${h}%` }}></div>
                 ))}
               </div>
               <div className="flex justify-between mt-4 px-2 text-[10px] font-bold text-on-surface-variant tracking-widest uppercase">
