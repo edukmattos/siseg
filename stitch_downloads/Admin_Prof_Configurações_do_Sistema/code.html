@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Configurações do Sistema e Perfil - Occupational Excellence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed": "#d5e3fc",
+                      "surface-variant": "#e0e3e5",
+                      "secondary-container": "#d5e3fc",
+                      "outline-variant": "#c5c6cd",
+                      "background": "#f7f9fb",
+                      "secondary": "#515f74",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed-variant": "#3a485b",
+                      "on-error-container": "#93000a",
+                      "on-secondary": "#ffffff",
+                      "surface": "#f7f9fb",
+                      "outline": "#75777d",
+                      "tertiary-container": "#35260c",
+                      "on-secondary-fixed": "#0d1c2e",
+                      "on-primary-fixed": "#111c2d",
+                      "surface-container-lowest": "#ffffff",
+                      "primary": "#091426",
+                      "on-tertiary-fixed-variant": "#564427",
+                      "on-surface-variant": "#45474c",
+                      "on-tertiary-fixed": "#271902",
+                      "primary-fixed-dim": "#bcc7de",
+                      "on-tertiary": "#ffffff",
+                      "surface-dim": "#d8dadc",
+                      "on-primary-fixed-variant": "#3c475a",
+                      "on-surface": "#191c1e",
+                      "on-secondary-container": "#57657a",
+                      "tertiary-fixed": "#fadfb8",
+                      "surface-container-low": "#f2f4f6",
+                      "primary-fixed": "#d8e3fb",
+                      "error": "#ba1a1a",
+                      "surface-container-highest": "#e0e3e5",
+                      "on-primary": "#ffffff",
+                      "inverse-surface": "#2d3133",
+                      "surface-container": "#eceef0",
+                      "inverse-on-surface": "#eff1f3",
+                      "surface-bright": "#f7f9fb",
+                      "on-primary-container": "#8590a6",
+                      "tertiary": "#1e1200",
+                      "surface-tint": "#545f73",
+                      "primary-container": "#1e293b",
+                      "on-background": "#191c1e",
+                      "error-container": "#ffdad6",
+                      "secondary-fixed-dim": "#b9c7df",
+                      "inverse-primary": "#bcc7de",
+                      "tertiary-fixed-dim": "#ddc39d",
+                      "surface-container-high": "#e6e8ea",
+                      "on-tertiary-container": "#a38c6a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Manrope"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-fixed selection:text-primary">
+<!-- Sidebar Navigation -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-white dark:bg-slate-950 border-r border-slate-200/15 dark:border-slate-800/15 flex flex-col h-full py-6 px-4 z-50">
+<div class="flex items-center gap-3 mb-12 px-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg">verified_user</span>
+</div>
+<div class="flex flex-col">
+<span class="text-lg font-black text-slate-900 dark:text-slate-50 leading-none">NR-01 Ledger</span>
+<span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Enterprise Safety</span>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 font-medium hover:text-slate-900 dark:hover:text-slate-50 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all duration-300 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 font-medium hover:text-slate-900 dark:hover:text-slate-50 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all duration-300 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" data-icon="verified_user">verified_user</span>
+<span>Compliance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 font-medium hover:text-slate-900 dark:hover:text-slate-50 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all duration-300 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" data-icon="card_membership">card_membership</span>
+<span>Certifications</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 font-medium hover:text-slate-900 dark:hover:text-slate-50 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all duration-300 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" data-icon="group">group</span>
+<span>Team</span>
+</a>
+<!-- Active Tab -->
+<a class="flex items-center gap-3 px-4 py-3 text-slate-900 dark:text-slate-50 font-bold relative before:content-[''] before:absolute before:left-0 before:w-1 before:h-6 before:bg-slate-900 dark:before:bg-slate-50 before:rounded-full bg-slate-50 dark:bg-slate-900 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 font-medium hover:text-slate-900 dark:hover:text-slate-50 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-error font-medium hover:bg-error-container/20 transition-all duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 right-0 left-64 z-40 bg-slate-50/60 dark:bg-slate-900/60 backdrop-blur-xl shadow-[0_20px_40px_rgba(9,20,38,0.05)]">
+<div class="flex justify-between items-center px-8 py-4 w-full">
+<div class="flex items-center gap-4">
+<h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50">Configurações do Sistema e Perfil</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative">
+<span class="material-symbols-outlined text-slate-500 hover:text-slate-900 cursor-pointer transition-colors" data-icon="notifications">notifications</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-error rounded-full"></span>
+</div>
+<span class="material-symbols-outlined text-slate-500 hover:text-slate-900 cursor-pointer transition-colors" data-icon="help_outline">help_outline</span>
+<div class="flex items-center gap-3 pl-4 border-l border-slate-200">
+<div class="text-right">
+<p class="text-xs font-bold text-slate-900">Dr. Ricardo Silva</p>
+<p class="text-[10px] text-slate-500">Super Admin</p>
+</div>
+<img alt="User profile" class="w-10 h-10 rounded-full object-cover border border-white shadow-sm" data-alt="portrait of a professional mature man in a charcoal suit with clean lighting and minimal office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7RF2ZNBRxCBSh8WYycEQyLhzGJrzzT1r8qeMyJTAtuBH_H1zq6ydh8fxOvCVPZbGtKgm6atrY6Jh0JQKpGMstSCxt5xYCzaXr0iSlGaFnWsjALF026VUM6LbpwGYIUcxQ5St9APnhkGC6ByEpkJ9d9a3R2kiCY8X3pinkkybqQIQw-fsRO1NLbPJb_PTq2gfzHynZ_lH029AX6nsHjLckntJwQZw_wig8vhJjZv4vx9LswsEOUoI-KkQQnn2HOI-Xo9bxnf6xDOI"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pl-64 pt-24 min-h-screen">
+<div class="max-w-6xl mx-auto px-8 py-8 space-y-12">
+<!-- Section 1: Account Profile -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div>
+<h2 class="text-2xl font-extrabold text-primary tracking-tight">Account Profile</h2>
+<p class="text-sm text-on-surface-variant mt-2">Manage your personal professional identity and secure bio details.</p>
+</div>
+<div class="lg:col-span-2 bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(9,20,38,0.02)]">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Full Name</label>
+<input class="w-full bg-surface-container-low border-0 border-b-2 border-transparent focus:border-primary focus:ring-0 px-0 py-2 text-primary font-medium transition-all" type="text" value="Ricardo Silva"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Email Address</label>
+<input class="w-full bg-surface-container-low border-0 border-b-2 border-transparent focus:border-primary focus:ring-0 px-0 py-2 text-primary font-medium transition-all" type="email" value="ricardo.silva@safety.org"/>
+</div>
+<div class="md:col-span-2 space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Professional Bio</label>
+<textarea class="w-full bg-surface-container-low border-0 border-b-2 border-transparent focus:border-primary focus:ring-0 px-0 py-2 text-primary font-medium transition-all resize-none" rows="4">Senior Occupational Safety Specialist with 15+ years experience in heavy industry and regulatory compliance. Certified Lead Auditor for NR-01 standards.</textarea>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Organization Settings -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div>
+<h2 class="text-2xl font-extrabold text-primary tracking-tight">Organization Settings</h2>
+<p class="text-sm text-on-surface-variant mt-2">Core corporate identity and fiscal identifiers for compliance reports.</p>
+</div>
+<div class="lg:col-span-2 bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(9,20,38,0.02)]">
+<div class="flex items-center gap-8 mb-8">
+<div class="relative group">
+<div class="w-24 h-24 rounded-xl bg-surface-container-low flex items-center justify-center border-2 border-dashed border-outline-variant group-hover:border-primary transition-colors overflow-hidden">
+<span class="material-symbols-outlined text-outline text-3xl group-hover:hidden" data-icon="add_a_photo">add_a_photo</span>
+<img alt="Organization Logo" class="w-full h-full object-contain hidden group-hover:block opacity-20" data-alt="abstract geometric logo design in dark navy blue on a white background, professional and clean" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwmBdKXGLuiA-QU14h79zmxE1bzZf6KPiqYq-XvK9R2ASiwjb0K6PJRm9hjk_X1uGWtdgPVb7zfucY7AWQpNM5Ba8wx56vUL7RHsbJMJyG1BPQ0jEzKXVfPXQAqRbJv_Ra5dkxiTisOEQzQtGRwy4R-10BB23OF3rYjdmkGZy3xQl1Zorb6qtPWpftxyGEcsr8wI2yrOYv0z_zC4KKFR-Y7p2HrCL9MTt2FqiJ1pdfj42_fOgTk3KqczEqj5w0eCxFMfXo7kyowD0"/>
+</div>
+<button class="absolute -bottom-2 -right-2 bg-primary text-white p-2 rounded-full shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+</button>
+</div>
+<div class="flex-1">
+<h3 class="font-headline font-bold text-primary">Company Brand Assets</h3>
+<p class="text-xs text-on-surface-variant">High-resolution PNG or SVG recommended (min 400x400px).</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Company Name</label>
+<input class="w-full bg-surface-container-low border-0 border-b-2 border-transparent focus:border-primary focus:ring-0 px-0 py-2 text-primary font-medium transition-all" type="text" value="Industrial Safe-Guard LTDA"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Tax ID (CNPJ)</label>
+<input class="w-full bg-surface-container-low border-0 border-b-2 border-transparent focus:border-primary focus:ring-0 px-0 py-2 text-primary font-medium transition-all" type="text" value="12.345.678/0001-90"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3 & 4 (Asymmetric Layout): Team & System Preferences -->
+<div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+<!-- Team & Permissions -->
+<section class="lg:col-span-3">
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(9,20,38,0.02)] h-full">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-xl font-extrabold text-primary tracking-tight">Team &amp; Permissions</h2>
+<button class="text-xs font-bold uppercase tracking-widest text-primary flex items-center gap-1 opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="person_add">person_add</span>
+                                Add Assistant
+                            </button>
+</div>
+<div class="overflow-hidden">
+<table class="w-full">
+<thead>
+<tr class="text-left">
+<th class="pb-4 text-[10px] uppercase font-bold text-on-surface-variant tracking-widest">Member</th>
+<th class="pb-4 text-[10px] uppercase font-bold text-on-surface-variant tracking-widest">Role</th>
+<th class="pb-4 text-[10px] uppercase font-bold text-on-surface-variant tracking-widest">Status</th>
+<th class="pb-4"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-50">
+<tr>
+<td class="py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed text-xs font-bold">AL</div>
+<div class="text-sm">
+<p class="font-semibold text-primary">Ana Lúcia</p>
+<p class="text-[10px] text-on-surface-variant">ana.lucia@domain.com</p>
+</div>
+</div>
+</td>
+<td class="py-4">
+<span class="text-xs text-on-surface-variant">Assistant Prof.</span>
+</td>
+<td class="py-4">
+<span class="bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold px-2 py-1 rounded-full">ACTIVE</span>
+</td>
+<td class="py-4 text-right">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary transition-colors" data-icon="more_vert">more_vert</span>
+</td>
+</tr>
+<tr>
+<td class="py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed text-xs font-bold">MB</div>
+<div class="text-sm">
+<p class="font-semibold text-primary">Marcos Bezerra</p>
+<p class="text-[10px] text-on-surface-variant">m.bez@domain.com</p>
+</div>
+</div>
+</td>
+<td class="py-4">
+<span class="text-xs text-on-surface-variant">Sub-Admin</span>
+</td>
+<td class="py-4">
+<span class="bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold px-2 py-1 rounded-full">ACTIVE</span>
+</td>
+<td class="py-4 text-right">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary transition-colors" data-icon="more_vert">more_vert</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- System Preferences -->
+<section class="lg:col-span-2">
+<div class="bg-primary p-8 rounded-xl shadow-xl h-full text-white">
+<h2 class="text-xl font-extrabold tracking-tight mb-8">System Preferences</h2>
+<div class="space-y-8">
+<div class="space-y-3">
+<label class="text-[10px] uppercase font-bold text-on-primary-container tracking-widest">Interface Language</label>
+<div class="flex gap-2">
+<button class="flex-1 bg-primary-container py-2 text-sm font-bold rounded border border-on-primary-container/20">PT-BR</button>
+<button class="flex-1 bg-transparent hover:bg-primary-container py-2 text-sm font-medium rounded transition-colors text-on-primary-container">EN-US</button>
+</div>
+</div>
+<div class="space-y-3">
+<label class="text-[10px] uppercase font-bold text-on-primary-container tracking-widest">Timezone</label>
+<div class="flex items-center justify-between p-3 bg-primary-container/30 rounded border border-white/5">
+<span class="text-sm font-medium">Brasília (GMT-3)</span>
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4">
+<div>
+<p class="text-sm font-bold">Light/Dark Mode</p>
+<p class="text-[10px] text-on-primary-container">Toggle system appearance</p>
+</div>
+<div class="w-12 h-6 bg-primary-container rounded-full relative flex items-center px-1">
+<div class="w-4 h-4 bg-white rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Section 5: Integration Settings -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-8 pb-20">
+<div>
+<h2 class="text-2xl font-extrabold text-primary tracking-tight">Integration Settings</h2>
+<p class="text-sm text-on-surface-variant mt-2">Synchronize your digital ledger with external HR and Financial ecosystems.</p>
+</div>
+<div class="lg:col-span-2 space-y-6">
+<!-- ERP Sync Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-slate-200/40 flex items-start justify-between group hover:border-primary/20 transition-colors">
+<div class="flex gap-5">
+<div class="w-12 h-12 bg-surface-container-low rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl" data-icon="sync_alt">sync_alt</span>
+</div>
+<div>
+<h3 class="font-bold text-primary">HR System Sync (ERP)</h3>
+<p class="text-xs text-on-surface-variant mt-1">Status: <span class="text-on-tertiary-container font-bold">Awaiting Webhook URL</span></p>
+<div class="mt-3 flex gap-2">
+<input class="text-xs bg-surface-container-low border-0 focus:ring-1 focus:ring-primary rounded py-1 px-3 w-64" placeholder="https://api.yourcompany.com/webhook" type="text"/>
+<button class="bg-primary text-white text-[10px] font-bold px-4 py-1 rounded">Update</button>
+</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary" data-icon="link">link</span>
+</div>
+<!-- Payment Gateway Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-slate-200/40 flex items-start justify-between group hover:border-primary/20 transition-colors">
+<div class="flex gap-5">
+<div class="w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<div>
+<h3 class="font-bold text-primary">Payment Gateway</h3>
+<p class="text-xs text-on-surface-variant mt-1">Provider: <span class="font-bold">Stripe</span></p>
+<div class="mt-2 flex items-center gap-2">
+<span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+<span class="text-[10px] font-bold text-primary uppercase">Connected and Synchronized</span>
+</div>
+</div>
+</div>
+<button class="text-xs font-bold text-primary hover:underline transition-all">Configure</button>
+</div>
+<!-- API Key Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-slate-200/40 group hover:border-primary/20 transition-colors">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-bold text-primary">System API Key</h3>
+<span class="text-[10px] font-bold bg-surface-container-low text-on-surface-variant px-2 py-1 rounded">Read-Only</span>
+</div>
+<div class="flex gap-2">
+<div class="flex-1 bg-surface-container-low p-3 rounded font-mono text-xs text-on-surface-variant flex items-center justify-between">
+<span>sk_live_51Mzh...7vR9</span>
+<span class="material-symbols-outlined text-sm cursor-pointer hover:text-primary" data-icon="content_copy">content_copy</span>
+</div>
+<button class="bg-primary-fixed-dim text-primary px-4 rounded text-xs font-bold active:scale-95 transition-all">Regenerate</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Save FAB (Contextual for Settings) -->
+<button class="fixed bottom-8 right-8 bg-primary text-white flex items-center gap-2 px-6 py-4 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined" data-icon="save">save</span>
+<span class="font-bold text-sm tracking-wide">Salvar Alterações</span>
+</button>
+</body></html>

@@ -1,0 +1,34 @@
+# Documento de Requisitos de Design (PRD) - Plataforma de Treinamentos NR-01
+
+## 1. Visão Geral
+Plataforma SaaS multi-tenant voltada para a venda e gestão de treinamentos corporativos obrigatórios, com foco rigoroso na conformidade com a norma **NR-01 (Segurança e Saúde no Trabalho)**.
+
+## 2. Perfis de Usuário
+*   **Super Admin:** Gestão global, aprovação de cursos e controle de empresas/professores.
+*   **Admin da Empresa:** Gestor de RH/Segurança que adquire cursos e monitora a conformidade dos colaboradores.
+*   **Professor:** Especialista técnico que cria e submete conteúdos para aprovação.
+*   **Aluno (Colaborador):** Usuário final que consome o conteúdo e realiza avaliações.
+
+## 3. Arquitetura e Stack
+*   **Frontend:** React / Next.js
+*   **Backend:** Supabase (PostgreSQL, Auth, Storage, Edge Functions)
+*   **Segurança:** Row Level Security (RLS) para isolamento multi-tenant.
+*   **Pagamentos:** Stripe / Mercado Pago.
+
+## 4. Requisitos Críticos (NR-01)
+*   **Rastreabilidade Total:** Registro de IP, tempo de permanência por aula e logs de auditoria.
+*   **Integridade da Avaliação:** Randomização de questões, tentativas limitadas e nota mínima configurável.
+*   **Certificação Digital:** Geração automática de PDF com código de autenticidade e validade.
+*   **Controle de Expiração:** Alertas automáticos para recertificação obrigatória.
+
+## 5. Módulos Principais
+1.  **Gestão de Empresas:** Cadastro B2B e hierarquia de acesso.
+2.  **Catálogo e LMS:** Estrutura de módulos, lições (vídeo/PDF) e trilhas sequenciais.
+3.  **Financeiro:** Checkout B2B, faturamento por pacote ou usuário.
+4.  **Audit Log:** Sistema de eventos para conformidade legal.
+
+## 6. Fluxo de Trabalho de Design
+*   **Fase 1:** Design System Profissional (Confiança e Seriedade).
+*   **Fase 2:** Painel do Aluno (Foco em Aprendizado e Rastreio).
+*   **Fase 3:** Dashboard do Admin (Foco em Gestão e Conformidade).
+*   **Fase 4:** Fluxo de Criação e Aprovação de Cursos.

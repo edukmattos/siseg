@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "tertiary": "#1e1200",
+                        "surface-container": "#eceef0",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#8590a6",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "error-container": "#ffdad6",
+                        "background": "#f7f9fb",
+                        "inverse-on-surface": "#eff1f3",
+                        "secondary": "#515f74",
+                        "outline": "#75777d",
+                        "surface-variant": "#e0e3e5",
+                        "on-primary-fixed-variant": "#3c475a",
+                        "primary": "#091426",
+                        "tertiary-container": "#35260c",
+                        "tertiary-fixed": "#fadfb8",
+                        "surface-container-low": "#f2f4f6",
+                        "on-primary-fixed": "#111c2d",
+                        "on-surface-variant": "#45474c",
+                        "surface-container-high": "#e6e8ea",
+                        "surface": "#f7f9fb",
+                        "tertiary-fixed-dim": "#ddc39d",
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "on-background": "#191c1e",
+                        "inverse-primary": "#bcc7de",
+                        "on-secondary-container": "#57657a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#a38c6a",
+                        "surface-tint": "#545f73",
+                        "outline-variant": "#c5c6cd",
+                        "primary-fixed": "#d8e3fb",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "secondary-fixed": "#d5e3fc",
+                        "secondary-container": "#d5e3fc",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#271902",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2d3133",
+                        "primary-container": "#1e293b",
+                        "on-tertiary-fixed-variant": "#564427",
+                        "surface-bright": "#f7f9fb",
+                        "primary-fixed-dim": "#bcc7de",
+                        "on-surface": "#191c1e",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl shadow-[0_20px_40px_rgba(9,20,38,0.05)] flex justify-between items-center px-8 h-16 w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold bg-gradient-to-br from-slate-900 to-slate-700 bg-clip-text text-transparent dark:from-white dark:to-slate-400 font-['Manrope'] tracking-tight">Compliance Core</span>
+<div class="hidden md:flex items-center bg-surface-container-low px-4 py-1.5 rounded-xl border border-outline-variant/10">
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm font-['Inter'] placeholder-on-surface-variant/60 w-64" placeholder="Search courses or docs..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-6">
+<a class="font-['Manrope'] font-semibold tracking-tight text-slate-500 dark:text-slate-400 hover:opacity-90 transition-opacity" href="#">Global Safety</a>
+<a class="font-['Manrope'] font-semibold tracking-tight text-slate-500 dark:text-slate-400 hover:opacity-90 transition-opacity" href="#">Reporting</a>
+</div>
+<div class="flex items-center gap-4 border-l border-outline-variant/20 pl-6">
+<button class="relative">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-50" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border border-white"></span>
+</button>
+<img alt="User profile photo" class="w-8 h-8 rounded-full border border-outline-variant/20" data-alt="Close-up professional portrait of a male engineer in a light blue shirt with a neutral background, soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFHgBpdSYYRvRwmlNsl0KFEBa56EaRsYd4XTmF4KkifqoOQNAQXJVwDSnSVlW0B0s2NnmOAiBDYed3lQvtlcsmECImxXjGrlZebJObutUsmQ9Gx4sWtDPFpgUJ_iJqnJVz-cmNtMkVs47vpUi1CZDJ4a6ZFLejA8y4PAgGPrUbH7fz-SvRLj0YsDBXlN7xgCOEYfQ7leroJVhdvgx7m2XhTUC6AZSJoLR7VIjv7iIqVT4oR4cQ3qIw3Zo8pANvTMToX4UCbLzxk0o"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r border-slate-200/15 bg-white dark:bg-slate-900 flex flex-col pt-20 pb-8 px-4 z-40 hidden md:flex">
+<div class="flex items-center gap-3 px-2 mb-10">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="architecture" style="font-variation-settings: 'FILL' 1;">architecture</span>
+</div>
+<div>
+<h2 class="font-['Manrope'] font-extrabold tracking-tighter text-slate-900 dark:text-white leading-none">Occupational</h2>
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">NR-01 Compliance</span>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="relative flex items-center gap-3 px-3 py-3 text-slate-900 dark:text-white font-bold before:content-[''] before:absolute before:left-0 before:w-1 before:h-6 before:bg-slate-900 dark:before:bg-white before:rounded-full transition-all duration-300 ease-in-out bg-slate-50/50" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-['Inter'] text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-['Inter'] text-sm font-medium">My Courses</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+<span class="font-['Inter'] text-sm font-medium">Certificates</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span class="font-['Inter'] text-sm font-medium">Support</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant/10">
+<a class="flex items-center gap-3 px-3 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Inter'] text-sm font-medium">Settings</span>
+</a>
+<div class="mt-4 p-4 bg-primary-container rounded-xl">
+<p class="text-[11px] text-on-primary-container mb-2 font-bold uppercase tracking-wider">Compliance Status</p>
+<button class="w-full py-2 bg-primary-fixed text-primary text-xs font-bold rounded-lg hover:opacity-90 transition-opacity">Verify Status</button>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="md:pl-64 pt-16 min-h-screen">
+<div class="max-w-7xl mx-auto px-8 py-10">
+<!-- Hero Section -->
+<header class="mb-12 relative overflow-hidden bg-primary-container p-10 rounded-2xl">
+<div class="absolute top-0 right-0 w-1/3 h-full opacity-10">
+<span class="material-symbols-outlined text-[200px] absolute -right-20 -top-10" data-icon="security">security</span>
+</div>
+<div class="relative z-10">
+<h1 class="text-4xl font-extrabold text-white mb-3 tracking-tight">Welcome back, Lucas Oliveira!</h1>
+<p class="text-on-primary-container text-lg max-w-2xl font-['Inter']">You have <span class="text-white font-bold">2 courses</span> in progress and <span class="text-white font-bold">5 certificates</span> valid. Stay compliant with your latest safety certifications.</p>
+</div>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Main Column -->
+<div class="lg:col-span-8 space-y-10">
+<!-- Progress Overview (Summary Cards) -->
+<section>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_20px_rgba(9,20,38,0.02)] border border-outline-variant/5">
+<span class="material-symbols-outlined text-primary mb-4 block" data-icon="task_alt" style="font-size: 32px;">task_alt</span>
+<div class="text-3xl font-['Manrope'] font-extrabold text-primary">05</div>
+<div class="text-sm font-['Inter'] text-on-surface-variant font-medium">Completed Courses</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_20px_rgba(9,20,38,0.02)] border border-outline-variant/5">
+<span class="material-symbols-outlined text-on-secondary-container mb-4 block" data-icon="pending" style="font-size: 32px;">pending</span>
+<div class="text-3xl font-['Manrope'] font-extrabold text-primary">02</div>
+<div class="text-sm font-['Inter'] text-on-surface-variant font-medium">In Progress</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_20px_rgba(9,20,38,0.02)] border border-outline-variant/5">
+<span class="material-symbols-outlined text-error mb-4 block" data-icon="history_toggle_off" style="font-size: 32px;">history_toggle_off</span>
+<div class="text-3xl font-['Manrope'] font-extrabold text-error">01</div>
+<div class="text-sm font-['Inter'] text-on-surface-variant font-medium">Expiring Soon</div>
+</div>
+</div>
+</section>
+<!-- My Learning Path -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-2xl font-extrabold tracking-tight text-primary">My Learning Path</h2>
+<button class="text-sm font-bold text-primary flex items-center gap-1 hover:underline">View all <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Course Card 1 -->
+<div class="bg-surface-container-lowest group overflow-hidden rounded-xl shadow-[0_10px_30px_rgba(9,20,38,0.04)] transition-all hover:scale-[1.02]">
+<div class="h-40 overflow-hidden relative">
+<img alt="Safety Engineering" class="w-full h-full object-cover" data-alt="High-voltage electrical panel with warning signs and protective equipment, industrial setting with professional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6-4M7VJ9EbdCzW1RS9oy4bxTtplko3_xJSXWck33YFFgt8Rix_7XOzDr3RlYXJUxmZdrGL2mWLNzZPSFQMtokFWRSWr4bz_YCy5V162esjbpAyitcJRt74Okd3kyBF9loOLO2E9q3Q_8wr2BQgi-KjArE_o04YmH3uTVHjuwX3AlueK1AuPT9lWWSDSOPlOR5ea2vMQ7wAzoVw6WHRnGe_xz10OelN8Hj5DaCGSDxuqbAHpiCNpU_8W7Vvmd_IJjpc0qYT-Kct78"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<span class="absolute bottom-4 left-4 bg-white/20 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest border border-white/30">NR-10</span>
+</div>
+<div class="p-6">
+<h3 class="font-bold text-lg text-primary mb-1">Electrical Safety &amp; Systems</h3>
+<p class="text-xs text-on-surface-variant mb-6 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="schedule">schedule</span>
+                                        Last accessed: 2 days ago
+                                    </p>
+<div class="mb-6">
+<div class="flex justify-between text-xs font-bold mb-2">
+<span class="text-on-surface-variant">Course Progress</span>
+<span class="text-primary">65%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container rounded-full" style="width: 65%"></div>
+</div>
+</div>
+<button class="w-full py-3 bg-primary-container text-white text-sm font-bold rounded-lg hover:bg-primary transition-colors flex items-center justify-center gap-2">
+                                        Continue Learning <span class="material-symbols-outlined text-sm" data-icon="play_circle" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</button>
+</div>
+</div>
+<!-- Course Card 2 -->
+<div class="bg-surface-container-lowest group overflow-hidden rounded-xl shadow-[0_10px_30px_rgba(9,20,38,0.04)] transition-all hover:scale-[1.02]">
+<div class="h-40 overflow-hidden relative">
+<img alt="High Work Safety" class="w-full h-full object-cover" data-alt="Industrial worker in safety harness performing maintenance at heights, bright daylight, clear blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-k_2kyMS2-5wDqOiBPo45D0ZPG_NHvBTalfOZ-P3NyGCKduvnzQDiVzXUsgQO6fOIxVp1sAz9bbFRVyol0SSpZBF4kKCDjcG7LH5uc8uHD3e3Y5Nc6yc53fcTT1xMvp_mD4M97MXhrtwsptloyLXj0FX_WBi8_cXodNc0Qqv55DBQCeikOleXesfDVCZKIuZDIKb1g6psHFJBZW1f24TfDiT4Mcxr4RbxM6yY0ISnPXMUzEU8O5ah9hhkn5-Y565UTJ4ij79tnHo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<span class="absolute bottom-4 left-4 bg-white/20 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest border border-white/30">NR-35</span>
+</div>
+<div class="p-6">
+<h3 class="font-bold text-lg text-primary mb-1">Working at Heights</h3>
+<p class="text-xs text-on-surface-variant mb-6 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="schedule">schedule</span>
+                                        Last accessed: Today
+                                    </p>
+<div class="mb-6">
+<div class="flex justify-between text-xs font-bold mb-2">
+<span class="text-on-surface-variant">Course Progress</span>
+<span class="text-primary">20%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container rounded-full" style="width: 20%"></div>
+</div>
+</div>
+<button class="w-full py-3 bg-primary-container text-white text-sm font-bold rounded-lg hover:bg-primary transition-colors flex items-center justify-center gap-2">
+                                        Continue Learning <span class="material-symbols-outlined text-sm" data-icon="play_circle" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Recent Certificates -->
+<section>
+<h2 class="text-2xl font-extrabold tracking-tight text-primary mb-6">Recent Certificates</h2>
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/10">
+<div class="divide-y divide-outline-variant/5">
+<div class="p-4 flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-fixed flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="verified">verified</span>
+</div>
+<div>
+<h4 class="font-bold text-primary">NR-12: Machinery Safety</h4>
+<p class="text-xs text-on-surface-variant">Issued: Oct 24, 2023 • ID: CE-908221</p>
+</div>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg border border-outline-variant text-xs font-bold text-primary hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                                        Download PDF
+                                    </button>
+</div>
+<div class="p-4 flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-fixed flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="verified">verified</span>
+</div>
+<div>
+<h4 class="font-bold text-primary">PPE Usage &amp; Maintenance</h4>
+<p class="text-xs text-on-surface-variant">Issued: Sep 12, 2023 • ID: CE-887123</p>
+</div>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg border border-outline-variant text-xs font-bold text-primary hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                                        Download PDF
+                                    </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Sidebar Column -->
+<div class="lg:col-span-4 space-y-8">
+<!-- Safety Alerts Widget -->
+<section class="bg-error-container p-6 rounded-xl relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[100px]" data-icon="warning">warning</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 text-on-error-container mb-4">
+<span class="material-symbols-outlined" data-icon="error">error</span>
+<span class="text-sm font-bold uppercase tracking-wider">Critical Alert</span>
+</div>
+<h3 class="text-on-error-container font-extrabold text-lg mb-2">Certification Expiring</h3>
+<p class="text-on-error-container/80 text-sm mb-6">Your <span class="font-bold">NR-06 (PPE)</span> certification expires in 28 days. Renew now to maintain your active compliance status.</p>
+<button class="w-full py-3 bg-error text-white text-sm font-bold rounded-lg shadow-lg hover:opacity-90 transition-opacity">
+                                Start Renewal Now
+                            </button>
+</div>
+</section>
+<!-- Learning Stats -->
+<section class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10">
+<h3 class="font-extrabold text-primary mb-6">Monthly Activity</h3>
+<div class="space-y-6">
+<div class="flex items-end gap-2 h-32 justify-between px-2">
+<div class="w-4 bg-primary-fixed rounded-t-full" style="height: 40%"></div>
+<div class="w-4 bg-primary-fixed rounded-t-full" style="height: 60%"></div>
+<div class="w-4 bg-primary rounded-t-full" style="height: 90%"></div>
+<div class="w-4 bg-primary-fixed rounded-t-full" style="height: 50%"></div>
+<div class="w-4 bg-primary-fixed rounded-t-full" style="height: 75%"></div>
+<div class="w-4 bg-primary-fixed rounded-t-full" style="height: 30%"></div>
+<div class="w-4 bg-primary-fixed rounded-t-full" style="height: 85%"></div>
+</div>
+<div class="flex justify-between text-[10px] font-bold text-on-surface-variant px-1 uppercase">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+</div>
+<div class="pt-6 border-t border-outline-variant/5">
+<div class="flex items-center justify-between text-sm mb-2">
+<span class="text-on-surface-variant">Time Invested</span>
+<span class="font-bold text-primary">12.5 hrs</span>
+</div>
+<div class="flex items-center justify-between text-sm">
+<span class="text-on-surface-variant">Efficiency Rate</span>
+<span class="font-bold text-primary">94%</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Support Widget -->
+<section class="bg-primary p-6 rounded-xl text-white">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-icon="support_agent">support_agent</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-primary-container">Need Help?</p>
+<p class="text-sm font-bold">Expert Support 24/7</p>
+</div>
+</div>
+<p class="text-xs text-on-primary-container mb-4 leading-relaxed">Our compliance experts are available to clarify any NR-01 standards or technical platform issues.</p>
+<button class="w-full py-2 bg-white/10 hover:bg-white/20 transition-colors rounded-lg text-xs font-bold">Contact Representative</button>
+</section>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-white dark:bg-slate-900 border-t border-outline-variant/10 px-6 py-2 flex justify-between items-center z-50">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-bold">Dashboard</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="text-[10px] font-medium">Courses</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+<span class="text-[10px] font-medium">Certificates</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-[10px] font-medium">Settings</span>
+</a>
+</nav>
+</body></html>

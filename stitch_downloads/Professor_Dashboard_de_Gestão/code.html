@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Professor Dashboard | Occupational Excellence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-shift {
+            background: linear-gradient(135deg, var(--tw-bg-opacity, #f2f4f6) 0%, var(--tw-bg-opacity, #f7f9fb) 100%);
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#3a485b",
+                    "on-secondary-container": "#57657a",
+                    "on-error-container": "#93000a",
+                    "primary-container": "#1e293b",
+                    "on-error": "#ffffff",
+                    "secondary-fixed-dim": "#b9c7df",
+                    "outline-variant": "#c5c6cd",
+                    "on-background": "#191c1e",
+                    "on-tertiary-fixed-variant": "#564427",
+                    "surface-dim": "#d8dadc",
+                    "surface": "#f7f9fb",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#111c2d",
+                    "tertiary-fixed-dim": "#ddc39d",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e0e3e5",
+                    "primary-fixed-dim": "#bcc7de",
+                    "primary-fixed": "#d8e3fb",
+                    "on-primary-container": "#8590a6",
+                    "on-tertiary-container": "#a38c6a",
+                    "on-secondary-fixed": "#0d1c2e",
+                    "surface-tint": "#545f73",
+                    "secondary-fixed": "#d5e3fc",
+                    "secondary-container": "#d5e3fc",
+                    "surface-container": "#eceef0",
+                    "on-primary-fixed-variant": "#3c475a",
+                    "surface-container-highest": "#e0e3e5",
+                    "background": "#f7f9fb",
+                    "on-surface": "#191c1e",
+                    "inverse-surface": "#2d3133",
+                    "surface-container-high": "#e6e8ea",
+                    "primary": "#091426",
+                    "inverse-primary": "#bcc7de",
+                    "on-secondary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#75777d",
+                    "surface-container-low": "#f2f4f6",
+                    "surface-bright": "#f7f9fb",
+                    "secondary": "#515f74",
+                    "tertiary-container": "#35260c",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-tertiary-fixed": "#271902",
+                    "on-surface-variant": "#45474c",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#fadfb8",
+                    "tertiary": "#1e1200"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        }
+      }
+    </script>
+</head>
+<body class="bg-surface font-body text-on-surface flex min-h-screen">
+<!-- SideNavBar Component -->
+<aside class="hidden md:flex flex-col h-screen w-64 border-r border-slate-200/15 dark:border-slate-800/15 bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl sticky top-0 z-50 py-8 px-4 shadow-[0_20px_40px_rgba(9,20,38,0.05)]">
+<div class="mb-10 px-4">
+<span class="text-lg font-bold text-slate-900 dark:text-slate-50 font-headline tracking-tighter">Occupational Excellence</span>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Active State: Determined as 'Courses' or generic Home based on Dashboard intent -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg relative text-slate-900 dark:text-slate-50 before:absolute before:left-0 before:w-1 before:h-6 before:bg-slate-900 dark:before:bg-slate-50 before:rounded-full font-['Manrope'] font-semibold tracking-tight transition-all opacity-90 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span>Courses</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 font-['Manrope'] font-semibold tracking-tight hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-colors opacity-90 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Students</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 font-['Manrope'] font-semibold tracking-tight hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-colors opacity-90 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span>Earnings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 font-['Manrope'] font-semibold tracking-tight hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-colors opacity-90 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span>Profile</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-slate-100 dark:border-slate-800 flex items-center gap-3 px-4">
+<img alt="Professor Profile Avatar" class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="professional portrait of an experienced male safety instructor with a friendly expression in a modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMPIHrjsCv_1XBQu2Zzp53fV7bEY2CcrprU8KH0bHZjjBC5D6p8VFmJPrq4muUEMGpcz7FIN1Ai462AA3YKYaYrfN2tNQsPNqw-VHE0cK324Zav6pqJbg8zt8yaCek41vEtYto8YHWMYAoLN-zIQ-w7jkLjCCCqa-f3Ae8c9hwiroAactAfDnKR7IkCU66itwidvolVsoHQky4updfbHAMZJXCYWue1P2wYmH7aGwy2SmLwmbWJt30sIBliFzkmXRTJQ7lpfgOwWM"/>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-slate-50">Prof. Aris</p>
+<p class="text-xs text-slate-500">Safety Lead</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col min-w-0">
+<!-- TopNavBar Component -->
+<header class="flex justify-between items-center px-8 w-full sticky top-0 z-40 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-md w-full h-16">
+<div class="flex items-center gap-8">
+<h1 class="font-['Manrope'] font-extrabold tracking-tighter text-slate-900 dark:text-slate-50 text-xl">Occupational Excellence</h1>
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg" data-icon="search">search</span>
+<input class="bg-surface-container-low border-none rounded-xl pl-10 pr-4 py-2 text-sm w-64 focus:ring-2 focus:ring-primary" placeholder="Search courses or reports..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:text-slate-900 transition-opacity">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-slate-900 transition-opacity">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<img alt="Professor Account" class="w-8 h-8 rounded-full object-cover ml-2" data-alt="close-up of a professional male instructor in a formal shirt, professional atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPTsooaA1Gbk0nwmMV76tmsjkB509fUCOfgD_MGDPB4g2g3gu4SV0b2_oN4heepTQbJH0goG6CDOLtK-r50kNfKdD_p0RYFJB-AHFUor2HBqzns8VleZBg9bxH8aE-q359DTFFo5knJnIRdUENJg1m-fEXjdbd4cosqB11PMJpQ4ludLL65IZEFraBqz2EjXl7jdRzfQsJD32tHHgiAUtPh5j8JQqdCyp7ang-r5W1lhHMO1uP25pLxHAS9Ay9X7JTynD6_RW4mDM"/>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-8 lg:p-12 max-w-7xl mx-auto w-full">
+<!-- Header Section -->
+<div class="mb-10">
+<h2 class="text-3xl font-headline font-extrabold text-primary tracking-tight mb-2">Visão Geral do Instrutor</h2>
+<p class="text-on-surface-variant max-w-2xl">Monitore o desempenho de seus treinamentos de NR-01 e gerencie o progresso dos seus alunos com precisão arquitetônica.</p>
+</div>
+<!-- Bento Grid Metrics -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_20px_40px_rgba(9,20,38,0.05)] border-l-4 border-primary group transition-all hover:-translate-y-1">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary-container p-2 bg-primary-fixed rounded-lg" data-icon="group">group</span>
+<span class="text-xs font-bold text-primary px-2 py-1 bg-surface-container-high rounded-full">+12%</span>
+</div>
+<p class="text-label-md font-medium text-on-surface-variant uppercase tracking-widest text-[10px] mb-1">Total de Alunos</p>
+<h3 class="text-3xl font-headline font-extrabold text-primary">1,284</h3>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_20px_40px_rgba(9,20,38,0.05)] border-l-4 border-secondary group transition-all hover:-translate-y-1">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-secondary p-2 bg-secondary-fixed rounded-lg" data-icon="auto_stories">auto_stories</span>
+</div>
+<p class="text-label-md font-medium text-on-surface-variant uppercase tracking-widest text-[10px] mb-1">Cursos Ativos</p>
+<h3 class="text-3xl font-headline font-extrabold text-primary">14</h3>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_20px_40px_rgba(9,20,38,0.05)] border-l-4 border-tertiary-container group transition-all hover:-translate-y-1">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant p-2 bg-tertiary-fixed rounded-lg" data-icon="payments">payments</span>
+<span class="text-xs font-bold text-on-tertiary-container px-2 py-1 bg-tertiary-fixed-dim rounded-full">Este Mês</span>
+</div>
+<p class="text-label-md font-medium text-on-surface-variant uppercase tracking-widest text-[10px] mb-1">Ganhos Totais</p>
+<h3 class="text-3xl font-headline font-extrabold text-primary">R$ 42.850</h3>
+</div>
+</div>
+<!-- Main Dashboard Layout (Asymmetric) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Sales Performance Chart (Placeholder Visual) -->
+<div class="lg:col-span-8 bg-surface-container-low rounded-xl p-8">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h4 class="text-lg font-headline font-bold text-primary">Desempenho de Vendas</h4>
+<p class="text-sm text-on-surface-variant">Tendência de inscrições nos últimos 6 meses</p>
+</div>
+<select class="bg-surface-container-lowest border-none rounded-lg text-xs font-bold px-4 py-2 focus:ring-primary shadow-sm">
+<option>Últimos 6 meses</option>
+<option>Este ano</option>
+</select>
+</div>
+<!-- SVG Chart Mockup -->
+<div class="h-64 w-full relative flex items-end justify-between gap-2 px-2">
+<!-- Horizontal Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between py-2 pointer-events-none">
+<div class="border-t border-outline-variant/10 w-full"></div>
+<div class="border-t border-outline-variant/10 w-full"></div>
+<div class="border-t border-outline-variant/10 w-full"></div>
+<div class="border-t border-outline-variant/10 w-full"></div>
+</div>
+<!-- Visualizing bars with gradients -->
+<div class="flex-1 bg-gradient-to-t from-primary/20 to-primary h-[40%] rounded-t-lg transition-all hover:opacity-80"></div>
+<div class="flex-1 bg-gradient-to-t from-primary/20 to-primary h-[65%] rounded-t-lg transition-all hover:opacity-80"></div>
+<div class="flex-1 bg-gradient-to-t from-primary/20 to-primary h-[50%] rounded-t-lg transition-all hover:opacity-80"></div>
+<div class="flex-1 bg-gradient-to-t from-primary/20 to-primary h-[85%] rounded-t-lg transition-all hover:opacity-80"></div>
+<div class="flex-1 bg-gradient-to-t from-primary/20 to-primary h-[70%] rounded-t-lg transition-all hover:opacity-80"></div>
+<div class="flex-1 bg-gradient-to-t from-primary/20 to-primary h-[95%] rounded-t-lg transition-all hover:opacity-80"></div>
+</div>
+<div class="flex justify-between mt-4 px-2 text-[10px] font-bold text-on-surface-variant tracking-widest uppercase">
+<span>Jan</span>
+<span>Fev</span>
+<span>Mar</span>
+<span>Abr</span>
+<span>Mai</span>
+<span>Jun</span>
+</div>
+</div>
+<!-- Featured Alert / Next Task Card -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<div class="bg-primary p-8 rounded-xl text-on-primary shadow-lg relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="text-xl font-headline font-bold mb-2">Novo Relatório NR-01</h4>
+<p class="text-on-primary-container text-sm mb-6 leading-relaxed">Você tem 4 novos cursos aguardando revisão final de conformidade antes da publicação.</p>
+<button class="bg-surface-container-lowest text-primary px-6 py-2 rounded-lg font-bold text-sm hover:opacity-90 transition-all flex items-center gap-2">
+                                Revisar Agora
+                                <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Abstract Design Element -->
+<div class="absolute -right-10 -bottom-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_20px_40px_rgba(9,20,38,0.05)] border border-outline-variant/10">
+<h4 class="text-sm font-headline font-bold text-primary mb-4">Próximos Webinars</h4>
+<div class="space-y-4">
+<div class="flex gap-4 items-center p-3 rounded-lg hover:bg-surface-container-low transition-colors group">
+<div class="w-10 h-10 bg-secondary-fixed flex items-center justify-center rounded-lg text-secondary">
+<span class="text-xs font-bold">12 Abr</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold truncate group-hover:text-primary transition-colors">Segurança em Altura</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider">14:00 - 15:30</p>
+</div>
+</div>
+<div class="flex gap-4 items-center p-3 rounded-lg hover:bg-surface-container-low transition-colors group">
+<div class="w-10 h-10 bg-tertiary-fixed flex items-center justify-center rounded-lg text-on-tertiary-fixed-variant">
+<span class="text-xs font-bold">15 Abr</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold truncate group-hover:text-primary transition-colors">Riscos Elétricos BT/AT</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider">09:00 - 11:00</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Compliance Approval Table -->
+<div class="lg:col-span-12 mt-4">
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_20px_40px_rgba(9,20,38,0.05)] overflow-hidden">
+<div class="px-8 py-6 border-b border-outline-variant/10 flex justify-between items-center">
+<h4 class="text-lg font-headline font-bold text-primary">Status de Aprovação dos Cursos</h4>
+<button class="text-primary text-sm font-bold flex items-center gap-1 hover:underline">
+                                Ver todos <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="px-8 py-4 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Nome do Curso</th>
+<th class="px-8 py-4 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Categoria</th>
+<th class="px-8 py-4 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Última Edição</th>
+<th class="px-8 py-4 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Status</th>
+<th class="px-8 py-4 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Ações</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-8 py-5 font-semibold text-primary">Prevenção de Incêndios (NR-23)</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Segurança Patrimonial</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">24 Out, 2023</td>
+<td class="px-8 py-5">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-primary-fixed text-on-primary-fixed-variant">
+                                                Aprovado
+                                            </span>
+</td>
+<td class="px-8 py-5">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-8 py-5 font-semibold text-primary">Ergonomia Aplicada (NR-17)</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Saúde Ocupacional</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">02 Nov, 2023</td>
+<td class="px-8 py-5">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-tertiary-fixed text-on-tertiary-container">
+                                                Pendente
+                                            </span>
+</td>
+<td class="px-8 py-5">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-8 py-5 font-semibold text-primary">Espaços Confinados (NR-33)</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Riscos Especiais</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">15 Nov, 2023</td>
+<td class="px-8 py-5">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-surface-container-high text-on-secondary-container">
+                                                Rascunho
+                                            </span>
+</td>
+<td class="px-8 py-5">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-8 py-5 font-semibold text-primary">Segurança em Eletricidade (NR-10)</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Instalações Elétricas</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">18 Nov, 2023</td>
+<td class="px-8 py-5">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-error-container text-on-error-container">
+                                                Crítico
+                                            </span>
+</td>
+<td class="px-8 py-5">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- FAB Suppression Check: Contextually relevant only on main dashboards to create new items -->
+<button class="fixed bottom-8 right-8 bg-primary text-on-primary w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:scale-105 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</main>
+<!-- BottomNavBar Suppression Check: Suppressed for desktop, would render on small screens -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-white/80 backdrop-blur-md flex justify-around items-center border-t border-slate-100 z-50">
+<a class="flex flex-col items-center text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="school" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="text-[10px] font-bold">Cursos</span>
+</a>
+<a class="flex flex-col items-center text-slate-400" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-[10px] font-bold">Alunos</span>
+</a>
+<a class="flex flex-col items-center text-slate-400" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-[10px] font-bold">Ganhos</span>
+</a>
+<a class="flex flex-col items-center text-slate-400" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="text-[10px] font-bold">Perfil</span>
+</a>
+</nav>
+</body></html>

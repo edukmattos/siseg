@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Minha Conta e Configurações | Occupational Excellence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#d5e3fc",
+                        "surface-variant": "#e0e3e5",
+                        "secondary-container": "#d5e3fc",
+                        "outline-variant": "#c5c6cd",
+                        "background": "#f7f9fb",
+                        "secondary": "#515f74",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "outline": "#75777d",
+                        "tertiary-container": "#35260c",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "on-primary-fixed": "#111c2d",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#091426",
+                        "on-tertiary-fixed-variant": "#564427",
+                        "on-surface-variant": "#45474c",
+                        "on-tertiary-fixed": "#271902",
+                        "primary-fixed-dim": "#bcc7de",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "on-primary-fixed-variant": "#3c475a",
+                        "on-surface": "#191c1e",
+                        "on-secondary-container": "#57657a",
+                        "tertiary-fixed": "#fadfb8",
+                        "surface-container-low": "#f2f4f6",
+                        "primary-fixed": "#d8e3fb",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2d3133",
+                        "surface-container": "#eceef0",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-bright": "#f7f9fb",
+                        "on-primary-container": "#8590a6",
+                        "tertiary": "#1e1200",
+                        "surface-tint": "#545f73",
+                        "primary-container": "#1e293b",
+                        "on-background": "#191c1e",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "inverse-primary": "#bcc7de",
+                        "tertiary-fixed-dim": "#ddc39d",
+                        "surface-container-high": "#e6e8ea",
+                        "on-tertiary-container": "#a38c6a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="text-on-surface bg-background antialiased">
+<!-- TopNavBar Implementation from JSON -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/60 dark:bg-slate-900/60 backdrop-blur-xl shadow-[0_20px_40px_rgba(9,20,38,0.05)] flex justify-between items-center px-8 py-3 w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50">Occupational Excellence</span>
+<div class="hidden md:flex gap-6 items-center">
+<nav class="flex gap-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-50 transition-colors py-2 text-sm font-medium" href="#">Dashboard</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-50 transition-colors py-2 text-sm font-medium" href="#">Treinamentos</a>
+<a class="text-slate-900 dark:text-slate-50 font-semibold border-b-2 border-slate-900 dark:border-slate-50 py-2 text-sm" href="#">Configurações</a>
+</nav>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-200/50 rounded-full transition-colors opacity-90 active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-200/50 rounded-full transition-colors opacity-90 active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden ml-2 bg-primary-container">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="professional headshot of a young man with a friendly expression in a clean corporate environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs_19JCoi2OvrtHaVLYyaNq7CQixYms5v5XeopDoNgM1KJLW2P-kmaiHwgxZ-1P8XVThsMdArJMHl54Y4zXwBsSrUf2wR3ETxy3Fj4hVMEmam5iISk9OucwjJpC9wTbH1D8YQlZgI7VRNpSoBV34Ffe4GCkpICy2aDTArilz-Jut4HqmAXPdJtSCelePE9sYYqtyUARS8bgmXmi3SvFLIudRPJTR9mRlp0Yo1lf4pBGrqq7NC38uavy7Pgx-NFmQMG4Acug1KLdFM"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar Implementation from JSON -->
+<aside class="hidden lg:flex h-screen w-64 fixed left-0 top-0 border-r border-slate-200/15 dark:border-slate-800/15 bg-white dark:bg-slate-950 flex-col h-full py-6 px-4 z-40">
+<div class="flex items-center gap-3 px-4 mb-10 mt-16">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-icon="shield">shield</span>
+</div>
+<div>
+<h2 class="text-lg font-black text-slate-900 dark:text-slate-50 leading-tight">NR-01 Ledger</h2>
+<p class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Enterprise Safety</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 font-medium hover:text-slate-900 dark:hover:text-slate-50 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all duration-300 rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 font-medium hover:text-slate-900 dark:hover:text-slate-50 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span>Compliance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 font-medium hover:text-slate-900 dark:hover:text-slate-50 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="card_membership">card_membership</span>
+<span>Certifications</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 font-medium hover:text-slate-900 dark:hover:text-slate-50 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Team</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-900 dark:text-slate-50 font-bold relative before:content-[''] before:absolute before:left-0 before:w-1 before:h-6 before:bg-slate-900 dark:before:bg-slate-50 before:rounded-full bg-slate-50/50 dark:bg-slate-900/50 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="pt-6 border-t border-slate-100 dark:border-slate-800 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 font-medium hover:text-slate-900 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 font-medium hover:text-slate-900 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 pt-24 pb-12 px-6 md:px-12 max-w-7xl">
+<header class="mb-10">
+<h1 class="text-4xl font-extrabold tracking-tight text-primary mb-2">Minha Conta e Configurações</h1>
+<p class="text-on-surface-variant font-medium">Gerencie suas informações pessoais, segurança e preferências de notificação.</p>
+</header>
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-8">
+<!-- Column 1: Personal & Professional (Asymmetric Bento) -->
+<div class="xl:col-span-8 space-y-8">
+<!-- Section 1: Personal Information -->
+<section class="bg-surface-container-lowest rounded-xl p-8 shadow-[0_20px_40px_rgba(9,20,38,0.05)] border border-outline-variant/15">
+<div class="flex flex-col md:flex-row gap-8 items-start">
+<div class="relative group">
+<div class="w-32 h-32 rounded-xl overflow-hidden bg-surface-container-low border-2 border-primary-fixed flex items-center justify-center">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="high-quality portrait of Lucas Oliveira in soft architectural lighting against a neutral grey wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDBQPrKBV6KESIIsX9ESJzRw5mtQaDZtA0AR06p1Hap9gGK1uQWzPb94UaLyFddRla6KTnJtY-xA1-70kCDeWNWMlaJPg0nA10f06bjz3Z-w_ZCPLcIJbzlGmZlwNdEhdg-NX86LNMeEL35BepBPdK0gecU4DG3MeGzIrwYvT-QRcLh4sC-x_-ImzOoS6Xx5N816Sb7zSNJj4ugYA0svtsXEhd9YBMF-Uxd764Fzoq-k18lznhvit0xu4UCU6hTIVWX4Vyc_J1xIk"/>
+</div>
+<button class="absolute -bottom-2 -right-2 bg-primary text-white p-2 rounded-lg shadow-lg hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="photo_camera">photo_camera</span>
+</button>
+</div>
+<div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+<div class="space-y-1 md:col-span-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Full Name</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary transition-all font-semibold text-primary" type="text" value="Lucas Oliveira"/>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Email</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary transition-all" type="email" value="lucas.oliveira@enterprise.com"/>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Phone Number</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary transition-all" type="tel" value="+55 11 98765-4321"/>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">CPF</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low/50 border-none rounded-lg px-4 py-3 text-on-surface-variant font-mono cursor-not-allowed" readonly="" type="text" value="***.452.891-**"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-sm" data-icon="lock">lock</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Professional Data (Read-only Compliance) -->
+<section class="bg-surface-container-low/40 rounded-xl p-8 border border-outline-variant/10 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="text-[10px] font-bold uppercase text-primary-container bg-primary-fixed px-3 py-1 rounded-full">HR Verified Data</span>
+</div>
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="business_center">business_center</span>
+<h3 class="text-xl font-bold text-primary">Professional Data</h3>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<div>
+<p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Company</p>
+<p class="font-bold text-primary">TechSafety S.A.</p>
+</div>
+<div>
+<p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Department</p>
+<p class="font-bold text-primary">Operações Logísticas</p>
+</div>
+<div>
+<p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Role</p>
+<p class="font-bold text-primary">Supervisor de Campo</p>
+</div>
+<div>
+<p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Admission Date</p>
+<p class="font-bold text-primary">12/03/2021</p>
+</div>
+</div>
+<div class="mt-6 pt-6 border-t border-outline-variant/10 flex items-center gap-2 text-on-surface-variant text-sm italic">
+<span class="material-symbols-outlined text-sm" data-icon="info">info</span>
+<span>This information is read-only for NR-01 compliance integrity. Contact HR to request updates.</span>
+</div>
+</section>
+<!-- Section 4: Notification Preferences -->
+<section class="bg-surface-container-lowest rounded-xl p-8 shadow-[0_20px_40px_rgba(9,20,38,0.05)] border border-outline-variant/15">
+<div class="flex items-center gap-2 mb-8">
+<span class="material-symbols-outlined text-primary" data-icon="notifications_active">notifications_active</span>
+<h3 class="text-xl font-bold text-primary">Notification Preferences</h3>
+</div>
+<div class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center p-4 rounded-lg bg-surface-container-low/30">
+<div class="md:col-span-6">
+<h4 class="font-bold text-primary">Course Expiration</h4>
+<p class="text-sm text-on-surface-variant">Alerts when your mandatory safety certifications are about to expire.</p>
+</div>
+<div class="md:col-span-6 flex justify-end gap-6">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="hidden peer" type="checkbox"/>
+<div class="w-10 h-5 bg-slate-300 rounded-full relative peer-checked:bg-primary transition-colors">
+<div class="absolute left-1 top-1 bg-white w-3 h-3 rounded-full transition-transform peer-checked:translate-x-5"></div>
+</div>
+<span class="text-xs font-bold text-on-surface-variant group-hover:text-primary transition-colors">EMAIL</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="hidden peer" type="checkbox"/>
+<div class="w-10 h-5 bg-slate-300 rounded-full relative peer-checked:bg-primary transition-colors">
+<div class="absolute left-1 top-1 bg-white w-3 h-3 rounded-full transition-transform peer-checked:translate-x-5"></div>
+</div>
+<span class="text-xs font-bold text-on-surface-variant group-hover:text-primary transition-colors">SMS</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="hidden peer" type="checkbox"/>
+<div class="w-10 h-5 bg-slate-300 rounded-full relative peer-checked:bg-primary transition-colors">
+<div class="absolute left-1 top-1 bg-white w-3 h-3 rounded-full transition-transform peer-checked:translate-x-5"></div>
+</div>
+<span class="text-xs font-bold text-on-surface-variant group-hover:text-primary transition-colors">APP</span>
+</label>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center p-4 rounded-lg bg-surface-container-low/30">
+<div class="md:col-span-6">
+<h4 class="font-bold text-primary">New Certificates</h4>
+<p class="text-sm text-on-surface-variant">Instant confirmation when your training progress is validated.</p>
+</div>
+<div class="md:col-span-6 flex justify-end gap-6">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="hidden peer" type="checkbox"/>
+<div class="w-10 h-5 bg-slate-300 rounded-full relative peer-checked:bg-primary transition-colors">
+<div class="absolute left-1 top-1 bg-white w-3 h-3 rounded-full transition-transform peer-checked:translate-x-5"></div>
+</div>
+<span class="text-xs font-bold text-on-surface-variant group-hover:text-primary transition-colors">EMAIL</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="hidden peer" type="checkbox"/>
+<div class="w-10 h-5 bg-slate-300 rounded-full relative peer-checked:bg-primary transition-colors">
+<div class="absolute left-1 top-1 bg-white w-3 h-3 rounded-full transition-transform peer-checked:translate-x-5"></div>
+</div>
+<span class="text-xs font-bold text-on-surface-variant group-hover:text-primary transition-colors">SMS</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="hidden peer" type="checkbox"/>
+<div class="w-10 h-5 bg-slate-300 rounded-full relative peer-checked:bg-primary transition-colors">
+<div class="absolute left-1 top-1 bg-white w-3 h-3 rounded-full transition-transform peer-checked:translate-x-5"></div>
+</div>
+<span class="text-xs font-bold text-on-surface-variant group-hover:text-primary transition-colors">APP</span>
+</label>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Column 2: Security & Privacy (Stacked High-Authority) -->
+<div class="xl:col-span-4 space-y-8">
+<!-- Section 3: Security & Privacy -->
+<section class="bg-primary text-white rounded-xl p-8 shadow-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/20 rounded-full blur-3xl -mr-16 -mt-16"></div>
+<div class="flex items-center gap-3 mb-8 relative z-10">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+<h3 class="text-xl font-bold">Security</h3>
+</div>
+<div class="space-y-6 relative z-10">
+<button class="w-full flex items-center justify-between p-4 rounded-lg bg-primary-container hover:bg-slate-800 transition-colors group">
+<div class="text-left">
+<p class="font-bold">Change Password</p>
+<p class="text-xs text-on-primary-container">Update your secret credentials</p>
+</div>
+<span class="material-symbols-outlined text-on-primary-container group-hover:text-white transition-colors" data-icon="chevron_right">chevron_right</span>
+</button>
+<div class="p-4 rounded-lg bg-primary-container flex items-center justify-between">
+<div>
+<p class="font-bold">Two-Factor Auth (2FA)</p>
+<p class="text-xs text-on-primary-container">Enhanced account protection</p>
+</div>
+<span class="px-2 py-1 bg-green-500/20 text-green-400 text-[10px] font-bold uppercase rounded">ENABLED</span>
+</div>
+</div>
+<div class="mt-10 pt-8 border-t border-primary-container">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-sm" data-icon="history">history</span>
+<p class="text-xs font-bold uppercase tracking-widest text-on-primary-container">Recent Login History</p>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center gap-4">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="laptop_mac">laptop_mac</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold">São Paulo, BR • Chrome</p>
+<p class="text-[10px] text-on-primary-container">189.122.45.21 • Today, 09:42</p>
+</div>
+</li>
+<li class="flex items-center gap-4 opacity-70">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="smartphone">smartphone</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold">São Paulo, BR • App</p>
+<p class="text-[10px] text-on-primary-container">189.122.45.21 • Yesterday, 14:15</p>
+</div>
+</li>
+</ul>
+<button class="w-full mt-6 text-center text-xs font-bold text-on-primary-container hover:text-white transition-colors">VIEW FULL ACTIVITY LOG</button>
+</div>
+</section>
+<!-- Status Card (Bento Sidebar) -->
+<section class="bg-surface-container-high rounded-xl p-6 border border-outline-variant/20">
+<div class="flex items-center justify-between mb-4">
+<h4 class="text-sm font-bold text-primary">Compliance Score</h4>
+<span class="material-symbols-outlined text-green-600" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full mb-3 overflow-hidden">
+<div class="bg-gradient-to-r from-primary to-primary-container h-full w-[94%]"></div>
+</div>
+<p class="text-[10px] text-on-surface-variant leading-relaxed">Your profile is 94% compliant with company policy. Ensure your two-factor authentication is regularly audited.</p>
+</section>
+</div>
+</div>
+<!-- Footer Actions -->
+<footer class="mt-12 flex flex-col md:flex-row gap-4 items-center justify-between pt-8 border-t border-outline-variant/15">
+<p class="text-sm text-on-surface-variant font-medium">Last profile update: Today at 08:30 AM</p>
+<div class="flex gap-4">
+<button class="px-6 py-2.5 text-sm font-bold text-secondary hover:bg-surface-container transition-colors rounded-lg">Discard Changes</button>
+<button class="px-8 py-2.5 text-sm font-bold text-white bg-primary hover:opacity-90 active:scale-95 transition-all rounded-lg shadow-lg">Save All Configurations</button>
+</div>
+</footer>
+</main>
+</body></html>

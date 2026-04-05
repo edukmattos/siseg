@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Configuração de Alertas e Prazos | NR-01 Ledger</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Manrope & Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#564427",
+                        "surface-container": "#eceef0",
+                        "surface-dim": "#d8dadc",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e0e3e5",
+                        "on-tertiary-container": "#a38c6a",
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "inverse-primary": "#bcc7de",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#545f73",
+                        "tertiary": "#1e1200",
+                        "surface": "#f7f9fb",
+                        "outline": "#75777d",
+                        "inverse-on-surface": "#eff1f3",
+                        "tertiary-fixed": "#fadfb8",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#3c475a",
+                        "tertiary-fixed-dim": "#ddc39d",
+                        "primary-fixed-dim": "#bcc7de",
+                        "error-container": "#ffdad6",
+                        "secondary": "#515f74",
+                        "surface-container-high": "#e6e8ea",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#111c2d",
+                        "on-primary-container": "#8590a6",
+                        "secondary-container": "#d5e3fc",
+                        "surface-bright": "#f7f9fb",
+                        "surface-container-low": "#f2f4f6",
+                        "primary": "#091426",
+                        "primary-container": "#1e293b",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#57657a",
+                        "outline-variant": "#c5c6cd",
+                        "on-background": "#191c1e",
+                        "primary-fixed": "#d8e3fb",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-container": "#35260c",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "on-tertiary-fixed": "#271902",
+                        "on-surface": "#191c1e",
+                        "secondary-fixed": "#d5e3fc",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#45474c",
+                        "background": "#f7f9fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 h-screen z-40 w-64 bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl border-r-0 shadow-[0_20px_40px_rgba(9,20,38,0.05)]">
+<div class="p-8">
+<h1 class="font-bold text-slate-900 dark:text-slate-50 tracking-tight text-xl mb-1">NR-01 Ledger</h1>
+<p class="text-xs font-medium text-slate-500 uppercase tracking-widest">Architectural Guardian</p>
+</div>
+<nav class="mt-4 px-4 space-y-1">
+<a class="flex items-center gap-3 py-3 px-4 text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="text-sm">Compliance Deck</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="text-sm">Training Portal</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="report_problem">report_problem</span>
+<span class="text-sm">Safety Alerts</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-slate-950 dark:text-white font-bold border-l-4 border-slate-900 dark:border-slate-50 bg-slate-100/30" href="#">
+<span class="material-symbols-outlined" data-icon="settings_suggest">settings_suggest</span>
+<span class="text-sm">Risk Settings</span>
+</a>
+</nav>
+<div class="absolute bottom-8 w-full px-8 space-y-4">
+<button class="w-full bg-primary text-white py-3 rounded-lg text-sm font-bold flex items-center justify-center gap-2 active:scale-95 duration-200 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                New Audit
+            </button>
+<div class="flex flex-col gap-2 pt-4 border-t border-outline-variant/10">
+<a class="flex items-center gap-3 text-slate-500 text-sm font-medium hover:text-slate-900" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="help_center">help_center</span> Support
+                </a>
+<a class="flex items-center gap-3 text-slate-500 text-sm font-medium hover:text-slate-900" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="logout">logout</span> Sign Out
+                </a>
+</div>
+</div>
+</aside>
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 right-0 h-16 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-md flex justify-between items-center px-8 ml-64 w-[calc(100%-16rem)] z-30">
+<div class="flex items-center gap-8">
+<span class="text-lg font-black tracking-widest text-slate-900 dark:text-slate-50 uppercase">Compliance Guardian</span>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-on-surface-variant/50">
+<span class="material-symbols-outlined text-sm" data-icon="search">search</span>
+</span>
+<input class="bg-surface-container-low border-none rounded-lg py-1.5 pl-10 pr-4 text-sm w-64 focus:ring-1 focus:ring-primary" placeholder="Search rules..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<nav class="flex gap-6">
+<a class="text-slate-500 font-medium text-sm hover:text-slate-700" href="#">Global View</a>
+<a class="text-slate-500 font-medium text-sm hover:text-slate-700" href="#">Logs</a>
+<a class="text-slate-500 font-medium text-sm hover:text-slate-700" href="#">Certificates</a>
+</nav>
+<div class="h-6 w-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 bg-on-primary-fixed-variant text-white px-4 py-1.5 rounded-full text-xs font-bold tracking-tight">
+                    System Status
+                </button>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors" data-icon="notifications">notifications</span>
+<img alt="Compliance Officer Avatar" class="w-8 h-8 rounded-full object-cover" data-alt="professional portrait of a compliance officer wearing safety glasses in a clean architectural office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBriw7kumnF4G4cEVt85OA1GtejzYkrc16q644RmdN4iezU_FulZYy7KmY1brnBVGxgJZ7JSkgjiHIjOZgDmTLJ_5-fLAj2iJ73mKKMEbTgktR3CqdAxM0G8dkCbKo70eYdyC_QFGyepKzTW3T4owx12NtTjN86kBy9zjimxCSn3MkNJ4DKaoq6pBKN1v7ImpZ52CLrNM7Jnkwzi0D_DFKsSJnDWIH2Wie2JJUHN95JouoyElpQuIfHJH3B0N4wPvWAena6iFGfnV0"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 pb-12 px-12 min-h-screen">
+<!-- Header Section -->
+<div class="flex flex-col gap-2 mb-10">
+<h2 class="text-3xl font-extrabold text-primary tracking-tight">Alertas e Conformidade</h2>
+<p class="text-on-surface-variant max-w-2xl font-medium">Configure protocolos de segurança automatizados para garantir que nenhum certificado de NR expire sem supervisão.</p>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<!-- Bento Column 1: Notification Logic -->
+<div class="col-span-12 lg:col-span-7 space-y-8">
+<!-- Card: Trigger Points -->
+<section class="bg-surface-container-lowest p-8 rounded-xl border border-transparent hover:border-outline-variant/10 transition-all">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="text-lg font-bold text-primary">Gatilhos de Aviso</h3>
+<p class="text-xs text-on-surface-variant font-medium">Antecedência mínima para renovação documental</p>
+</div>
+<span class="material-symbols-outlined text-primary-container bg-primary-fixed p-2 rounded-lg" data-icon="alarm_on">alarm_on</span>
+</div>
+<div class="space-y-6">
+<!-- Rule Row 1 -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-4">
+<span class="w-12 h-12 flex items-center justify-center bg-white rounded-full font-bold text-primary shadow-sm">90</span>
+<div>
+<p class="text-sm font-bold text-primary">Aviso Antecipado (90 dias)</p>
+<p class="text-xs text-on-surface-variant">Primeira triagem de vencimentos</p>
+</div>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</div>
+</div>
+<!-- Rule Row 2 -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-4">
+<span class="w-12 h-12 flex items-center justify-center bg-white rounded-full font-bold text-primary shadow-sm">60</span>
+<div>
+<p class="text-sm font-bold text-primary">Aviso Intermediário (60 dias)</p>
+<p class="text-xs text-on-surface-variant">Início obrigatório de agendamento</p>
+</div>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</div>
+</div>
+<!-- Rule Row 3 -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg border-2 border-error/10">
+<div class="flex items-center gap-4">
+<span class="w-12 h-12 flex items-center justify-center bg-error-container rounded-full font-bold text-error shadow-sm">30</span>
+<div>
+<p class="text-sm font-bold text-error">Aviso Crítico (30 dias)</p>
+<p class="text-xs text-on-error-container">Protocolo de escalonamento ativado</p>
+</div>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Card: Recipients & Channels -->
+<section class="bg-surface-container-lowest p-8 rounded-xl border border-transparent hover:border-outline-variant/10 transition-all">
+<h3 class="text-lg font-bold text-primary mb-6">Canais e Destinatários</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Recipients -->
+<div>
+<p class="text-xs font-black uppercase tracking-wider text-slate-400 mb-4">Notificar quem?</p>
+<div class="space-y-3">
+<label class="flex items-center gap-3 p-3 bg-surface hover:bg-surface-container-low rounded-lg cursor-pointer transition-colors border border-outline-variant/10">
+<input checked="" class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-bold text-primary">Gestor de RH</span>
+</label>
+<label class="flex items-center gap-3 p-3 bg-surface hover:bg-surface-container-low rounded-lg cursor-pointer transition-colors border border-outline-variant/10">
+<input checked="" class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-bold text-primary">Aluno / Colaborador</span>
+</label>
+<label class="flex items-center gap-3 p-3 bg-surface hover:bg-surface-container-low rounded-lg cursor-pointer transition-colors border border-outline-variant/10">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-bold text-primary">Supervisor Direto</span>
+</label>
+</div>
+</div>
+<!-- Channels -->
+<div>
+<p class="text-xs font-black uppercase tracking-wider text-slate-400 mb-4">Via quais canais?</p>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-3 bg-surface rounded-lg">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="mail">mail</span>
+<span class="text-sm font-medium">E-mail Corporativo</span>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-10 h-5 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface rounded-lg">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="notifications_active">notifications_active</span>
+<span class="text-sm font-medium">Push App Mobile</span>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-10 h-5 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface rounded-lg">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="chat">chat</span>
+<span class="text-sm font-medium">WhatsApp API</span>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-10 h-5 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Bento Column 2: Hard Compliance Rules -->
+<div class="col-span-12 lg:col-span-5 space-y-8">
+<!-- Hard Block Config -->
+<section class="bg-primary text-on-primary p-8 rounded-xl shadow-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/20 rounded-full blur-3xl -mr-16 -mt-16"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-tertiary-fixed text-3xl" data-icon="lock_reset" data-weight="fill">lock_reset</span>
+<h3 class="text-xl font-extrabold tracking-tight">Bloqueio Rigoroso</h3>
+</div>
+<p class="text-sm text-on-primary/70 mb-8 leading-relaxed">
+                            A ativação deste módulo impede que colaboradores acessem áreas operacionais ou sistemas de treinamento se o certificado estiver vencido há mais de 24 horas.
+                        </p>
+<div class="space-y-4">
+<div class="p-4 bg-white/5 border border-white/10 rounded-lg flex items-start gap-4">
+<div class="relative inline-flex items-center mt-1 cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-tertiary-fixed"></div>
+</div>
+<div>
+<p class="text-sm font-bold">Impedir Login no Portal</p>
+<p class="text-xs text-on-primary/60">Acesso negado em caso de expiração crítica.</p>
+</div>
+</div>
+<div class="p-4 bg-white/5 border border-white/10 rounded-lg flex items-start gap-4">
+<div class="relative inline-flex items-center mt-1 cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-tertiary-fixed"></div>
+</div>
+<div>
+<p class="text-sm font-bold">Bloqueio de Catraca/Acesso Físico</p>
+<p class="text-xs text-on-primary/60">Integração via API com hardware de controle de acesso.</p>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-white/10">
+<label class="block text-xs font-bold uppercase text-on-primary/40 mb-2">Período de Carência</label>
+<div class="flex items-center gap-4">
+<input class="w-20 bg-white/10 border-none rounded-lg text-sm text-white focus:ring-1 focus:ring-tertiary-fixed" type="number" value="24"/>
+<span class="text-sm font-medium">Horas úteis</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Certification Summary Visualization -->
+<section class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/20">
+<h4 class="text-xs font-black uppercase text-slate-500 mb-6 tracking-widest">Impacto Estimado</h4>
+<div class="space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="text-xs font-bold text-primary">Conformidade Atual</span>
+<span class="text-sm font-bold text-primary tracking-tight">94.2%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container rounded-full" style="width: 94.2%"></div>
+</div>
+</div>
+<p class="text-[10px] leading-tight text-on-surface-variant italic">
+                            * Com base nos novos gatilhos de 90 dias, o sistema projeta um aumento de 3.5% na taxa de renovação antecipada no próximo trimestre.
+                        </p>
+</div>
+</section>
+<div class="flex gap-4">
+<button class="flex-1 bg-surface-container-highest text-primary py-4 rounded-xl font-bold text-sm active:scale-95 transition-all">Descartar</button>
+<button class="flex-[2] bg-primary text-white py-4 rounded-xl font-bold text-sm shadow-lg shadow-primary/10 active:scale-95 transition-all">Salvar Configurações</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Hidden as per shell visibility rules for settings-focused page) -->
+<!-- Not rendering as per rule: "You MUST suppress the FAB on Settings, Profile, Details, and Transactional screens." -->
+</body></html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Compliance Guardian | Audit Reports</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#eff1f3",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#545f73",
+                        "surface-bright": "#f7f9fb",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "on-tertiary-fixed-variant": "#564427",
+                        "surface-variant": "#e0e3e5",
+                        "on-secondary-container": "#57657a",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ddc39d",
+                        "tertiary-fixed": "#fadfb8",
+                        "on-surface-variant": "#45474c",
+                        "on-background": "#191c1e",
+                        "primary-fixed-dim": "#bcc7de",
+                        "outline": "#75777d",
+                        "background": "#f7f9fb",
+                        "on-primary-fixed": "#111c2d",
+                        "surface": "#f7f9fb",
+                        "primary-fixed": "#d8e3fb",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary": "#515f74",
+                        "inverse-primary": "#bcc7de",
+                        "inverse-surface": "#2d3133",
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "primary-container": "#1e293b",
+                        "tertiary": "#1e1200",
+                        "secondary-container": "#d5e3fc",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#a38c6a",
+                        "on-tertiary-fixed": "#271902",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "primary": "#091426",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#8590a6",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c5c6cd",
+                        "secondary-fixed": "#d5e3fc",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-primary-fixed-variant": "#3c475a",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "tertiary-container": "#35260c",
+                        "surface-container": "#eceef0",
+                        "surface-container-low": "#f2f4f6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<nav class="bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl text-slate-900 dark:text-slate-50 docked full-width top-0 sticky z-50 shadow-[0_20px_40px_rgba(9,20,38,0.05)] flex justify-between items-center px-8 w-full h-16">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50">Compliance Guardian</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-opacity duration-200 px-3 py-1 rounded-lg text-sm font-medium" href="#">Overview</a>
+<a class="text-slate-900 dark:text-white font-semibold transition-opacity duration-200 px-3 py-1 rounded-lg text-sm" href="#">Audits</a>
+<a class="text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-opacity duration-200 px-3 py-1 rounded-lg text-sm font-medium" href="#">Training</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-100 rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-100 rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden">
+<img alt="User profile" class="h-full w-full object-cover" data-alt="close-up portrait of a professional compliance officer in a modern minimalist office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPP3hbp3YxOG7R6TLy2o7_TRDUFXPZjMY36bG-bkrwME6Ih4tzkDWqjwch2OPN21-ZhIh43KJhI_z5Icu0UqRiAalcQzBc7yFDlVIzkXfLVubDe_SiPC_Gx4ELOxAEEr0fCbsRbkEYf6EU01Myt4xYDcO5IJe6rN6OPUoJnfP92fkomRO3xhsHjRzsPEe37MKeO9Y9g9FUwPiH8ZNoAA2jC3R0dbvQzgjjYfaYWkWZmHZiHvhgqM3xNCoi-UM-APZUgw7WUevRMbI"/>
+</div>
+</div>
+</nav>
+<div class="flex">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-screen pt-4 fixed left-0 w-64 bg-white dark:bg-slate-900 border-r-0 z-40">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-icon="shield">shield</span>
+</div>
+<div>
+<h2 class="font-bold text-slate-900 dark:text-slate-50 text-sm leading-tight">NR-01 Ledger</h2>
+<p class="text-xs text-slate-500">Enterprise Safety</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-slate-500 dark:text-slate-400 flex items-center px-6 py-3 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all duration-300 ease-in-out text-sm font-medium" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="dashboard">dashboard</span> Dashboard
+                </a>
+<a class="text-slate-900 dark:text-white font-bold border-l-4 border-slate-900 dark:border-slate-100 flex items-center px-6 py-3 bg-slate-50 dark:bg-slate-800/50 transition-all duration-300 ease-in-out text-sm" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="inventory_2">inventory_2</span> Compliance Deck
+                </a>
+<a class="text-slate-500 dark:text-slate-400 flex items-center px-6 py-3 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all duration-300 ease-in-out text-sm font-medium" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="school">school</span> Training Portal
+                </a>
+<a class="text-slate-500 dark:text-slate-400 flex items-center px-6 py-3 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all duration-300 ease-in-out text-sm font-medium" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="warning">warning</span> Safety Alerts
+                </a>
+<a class="text-slate-500 dark:text-slate-400 flex items-center px-6 py-3 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all duration-300 ease-in-out text-sm font-medium" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="gpp_maybe">gpp_maybe</span> Risk Settings
+                </a>
+</nav>
+<div class="p-6 mt-auto border-t border-slate-100 dark:border-slate-800">
+<a class="text-slate-500 dark:text-slate-400 flex items-center mb-3 text-sm hover:text-slate-900" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="help_center">help_center</span> Support
+                </a>
+<a class="text-slate-500 dark:text-slate-400 flex items-center text-sm hover:text-error" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="logout">logout</span> Logout
+                </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 p-8 min-h-screen">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+<div>
+<span class="text-xs font-bold uppercase tracking-widest text-on-primary-container mb-2 block">NR-01 Regulatory Governance</span>
+<h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-primary">Relatórios de Auditoria e Conformidade</h1>
+</div>
+<button class="bg-primary text-white px-6 py-3 rounded-lg flex items-center gap-2 font-semibold hover:opacity-90 transition-all shadow-lg shadow-primary/10">
+<span class="material-symbols-outlined text-sm" data-icon="picture_as_pdf">picture_as_pdf</span>
+                    Download PDF Report (Audit Ready)
+                </button>
+</div>
+<!-- Summary Cards: Asymmetric Bento Style -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_20px_40px_rgba(9,20,38,0.05)] flex flex-col justify-between h-32 relative overflow-hidden group">
+<div class="relative z-10">
+<p class="text-sm font-medium text-slate-500">Total Logs Today</p>
+<h3 class="text-3xl font-bold mt-1 text-primary">1,284</h3>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-8xl" data-icon="history">history</span>
+</div>
+<div class="text-xs text-green-600 font-medium flex items-center gap-1 mt-auto relative z-10">
+<span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span> +12% from yesterday
+                    </div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_20px_40px_rgba(9,20,38,0.05)] flex flex-col justify-between h-32 relative overflow-hidden group border-l-4 border-error">
+<div class="relative z-10">
+<p class="text-sm font-medium text-slate-500">Security Alerts</p>
+<h3 class="text-3xl font-bold mt-1 text-error">02</h3>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-8xl" data-icon="shield_alert">shield</span>
+</div>
+<div class="text-xs text-on-error-container bg-error-container px-2 py-0.5 rounded-full w-fit mt-auto relative z-10">
+                        Requires Attention
+                    </div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_20px_40px_rgba(9,20,38,0.05)] flex flex-col justify-between h-32 relative overflow-hidden group">
+<div class="relative z-10">
+<p class="text-sm font-medium text-slate-500">System Health</p>
+<h3 class="text-3xl font-bold mt-1 text-primary">99.9%</h3>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-8xl" data-icon="speed">speed</span>
+</div>
+<div class="text-xs text-slate-500 mt-auto relative z-10 flex items-center gap-2">
+<span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span> Verified Nodes
+                    </div>
+</div>
+</div>
+<!-- Powerful Filtering System -->
+<div class="bg-surface-container-low p-6 rounded-xl mb-8 border border-outline-variant/10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div>
+<label class="block text-xs font-bold uppercase text-slate-500 mb-2">Search by User</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm" data-icon="search">search</span>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg pl-10 py-2 text-sm focus:ring-2 focus:ring-primary" placeholder="Name or ID" type="text"/>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold uppercase text-slate-500 mb-2">Date Range</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm" data-icon="calendar_today">calendar_today</span>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg pl-10 py-2 text-sm focus:ring-2 focus:ring-primary" placeholder="Last 30 Days" type="text"/>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold uppercase text-slate-500 mb-2">Unit</label>
+<select class="w-full bg-surface-container-lowest border-none rounded-lg py-2 text-sm focus:ring-2 focus:ring-primary appearance-none">
+<option>All Units</option>
+<option>São Paulo HQ</option>
+<option>Curitiba Logistics</option>
+<option>Manaus Plant</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold uppercase text-slate-500 mb-2">Action Type</label>
+<select class="w-full bg-surface-container-lowest border-none rounded-lg py-2 text-sm focus:ring-2 focus:ring-primary appearance-none">
+<option>All Actions</option>
+<option>Login / Access</option>
+<option>Safety Test</option>
+<option>Certification Issued</option>
+<option>Data Modification</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Audit Logs Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_20px_40px_rgba(9,20,38,0.05)] overflow-hidden border border-outline-variant/5">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant/10">
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-wider text-slate-500">Timestamp</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-wider text-slate-500">User Entity</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-wider text-slate-500">Action performed</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-wider text-slate-500">Network Info</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-wider text-slate-500">Integrity Hash</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-wider text-slate-500 text-right">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/5">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-primary">20 Oct 2023</span>
+<span class="text-[10px] text-slate-400">14:23:45 UTC</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-500">RM</div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-slate-900">Ricardo Mendes</span>
+<span class="text-[10px] text-slate-400">ID: 8823-X</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant px-2 py-1 rounded text-[11px] font-bold">CERTIFICATION_RENEWAL</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-xs font-mono text-slate-600">192.168.1.104</span>
+<span class="text-[10px] text-slate-400">São Paulo, BR</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-[10px] font-mono text-slate-400 bg-slate-50 px-2 py-1 rounded select-all cursor-pointer hover:bg-slate-100">8f2e...d9c1</span>
+</td>
+<td class="px-6 py-5 text-right">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+                                        VERIFIED
+                                    </span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-primary">20 Oct 2023</span>
+<span class="text-[10px] text-slate-400">13:10:02 UTC</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-500">AS</div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-slate-900">Ana Souza</span>
+<span class="text-[10px] text-slate-400">ID: 4412-A</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant px-2 py-1 rounded text-[11px] font-bold">SYSTEM_AUTH_LOGIN</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-xs font-mono text-slate-600">45.230.12.8</span>
+<span class="text-[10px] text-slate-400">Curitiba, BR</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-[10px] font-mono text-slate-400 bg-slate-50 px-2 py-1 rounded">2a7c...f0e4</span>
+</td>
+<td class="px-6 py-5 text-right">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+                                        VERIFIED
+                                    </span>
+</td>
+</tr>
+<!-- Row 3 (Alert Row) -->
+<tr class="hover:bg-error-container/10 transition-colors bg-error-container/5 group">
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-error">20 Oct 2023</span>
+<span class="text-[10px] text-error/60">12:45:19 UTC</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-error-container flex items-center justify-center text-xs font-bold text-on-error-container">?</div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-error">Unknown Client</span>
+<span class="text-[10px] text-error/60">MAC: 00-B0-D0...</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="bg-error text-white px-2 py-1 rounded text-[11px] font-bold">FAILED_ACCESS_ATTEMPT</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-xs font-mono text-error">103.4.22.190</span>
+<span class="text-[10px] text-error/60">Kyiv, UA</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-[10px] font-mono text-error/40 bg-error-container/20 px-2 py-1 rounded">HASH_MISMATCH</span>
+</td>
+<td class="px-6 py-5 text-right">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-error-container text-on-error-container text-[10px] font-bold">
+<span class="material-symbols-outlined text-[14px]" data-icon="warning">warning</span>
+                                        REJECTED
+                                    </span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-primary">20 Oct 2023</span>
+<span class="text-[10px] text-slate-400">11:02:11 UTC</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-500">JF</div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-slate-900">Juliana Ferraz</span>
+<span class="text-[10px] text-slate-400">ID: 1092-B</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant px-2 py-1 rounded text-[11px] font-bold">NR01_TEST_COMPLETED</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-xs font-mono text-slate-600">192.168.2.15</span>
+<span class="text-[10px] text-slate-400">São Paulo, BR</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-[10px] font-mono text-slate-400 bg-slate-50 px-2 py-1 rounded">5d1f...991a</span>
+</td>
+<td class="px-6 py-5 text-right">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+                                        VERIFIED
+                                    </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination / Footer -->
+<div class="px-6 py-4 bg-surface-container-low flex items-center justify-between">
+<span class="text-xs text-slate-500">Showing 1-10 of 1,284 entries</span>
+<div class="flex gap-2">
+<button class="p-1 hover:bg-slate-200 rounded disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="px-2 py-1 text-xs font-bold bg-primary text-white rounded">1</button>
+<button class="px-2 py-1 text-xs font-bold hover:bg-slate-200 rounded">2</button>
+<button class="px-2 py-1 text-xs font-bold hover:bg-slate-200 rounded">3</button>
+<button class="p-1 hover:bg-slate-200 rounded">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Integrity Verification Note -->
+<div class="mt-8 flex items-start gap-4 p-4 bg-surface-container-high rounded-lg">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="info">info</span>
+<p class="text-xs leading-relaxed text-slate-600">
+<span class="font-bold text-primary block mb-1">Non-Repudiation Guarantee</span>
+                    All logs shown in this panel are cryptographically hashed using SHA-256 and stored in an immutable ledger to ensure total NR-01 compliance. Any attempt to modify historical data will invalidate the Integrity Hash and trigger a global security alert.
+                </p>
+</div>
+</main>
+</div>
+<!-- Mobile Bottom NavBar (Suppressed as per rules for desktop, but included for mobile responsive pivot) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-white shadow-lg flex items-center justify-around z-50 border-t border-outline-variant/10">
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px]">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" data-icon="inventory_2" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="text-[10px] font-bold">Audits</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+<span class="text-[10px]">Alerts</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px]">Profile</span>
+</button>
+</nav>
+</body></html>

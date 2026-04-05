@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Autenticação: Esqueci a Senha</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#d5e3fc",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#d8dadc",
+                    "surface-container-highest": "#e0e3e5",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-surface-variant": "#45474c",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#f7f9fb",
+                    "on-primary-fixed-variant": "#3c475a",
+                    "primary-fixed-dim": "#bcc7de",
+                    "surface-variant": "#e0e3e5",
+                    "on-tertiary-container": "#a38c6a",
+                    "on-tertiary-fixed-variant": "#564427",
+                    "tertiary": "#1e1200",
+                    "surface": "#f7f9fb",
+                    "primary-fixed": "#d8e3fb",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-container": "#1e293b",
+                    "tertiary-fixed-dim": "#ddc39d",
+                    "inverse-primary": "#bcc7de",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#091426",
+                    "tertiary-container": "#35260c",
+                    "secondary-fixed-dim": "#b9c7df",
+                    "on-primary-container": "#8590a6",
+                    "background": "#f7f9fb",
+                    "secondary": "#515f74",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "on-background": "#191c1e",
+                    "on-tertiary-fixed": "#271902",
+                    "surface-container-high": "#e6e8ea",
+                    "on-secondary-container": "#57657a",
+                    "on-secondary-fixed": "#0d1c2e",
+                    "secondary-fixed": "#d5e3fc",
+                    "tertiary-fixed": "#fadfb8",
+                    "outline": "#75777d",
+                    "on-secondary-fixed-variant": "#3a485b",
+                    "on-primary-fixed": "#111c2d",
+                    "surface-tint": "#545f73",
+                    "surface-container-low": "#f2f4f6",
+                    "on-surface": "#191c1e",
+                    "error-container": "#ffdad6",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#eceef0",
+                    "outline-variant": "#c5c6cd"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        
+        /* Digital Ledger Subtle Background */
+        .ledger-grid {
+            background-image: radial-gradient(circle, #e0e3e5 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col items-center justify-center p-6 ledger-grid">
+<!-- TopNavBar Simulation (Suppressed as per rules for Transactional Screens, but keeping Brand Identity) -->
+<header class="fixed top-0 w-full px-6 py-8 flex justify-center pointer-events-none">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="shield_with_heart" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+<span class="text-xl font-bold tracking-tight text-primary font-headline">Occupational Excellence</span>
+</div>
+</header>
+<main class="w-full max-w-[480px] z-10">
+<!-- Main Card Container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_20px_40px_rgba(9,20,38,0.05)] overflow-hidden border border-outline-variant/15">
+<!-- Asymmetric Header Accent -->
+<div class="h-1.5 w-full bg-gradient-to-r from-primary via-primary-container to-secondary"></div>
+<div class="p-8 md:p-12">
+<!-- Content Header -->
+<div class="mb-10">
+<h1 class="text-3xl font-extrabold text-primary tracking-tight mb-3">Reset your password</h1>
+<p class="text-on-surface-variant body-md leading-relaxed">Enter your corporate email and we will send you a recovery link.</p>
+</div>
+<!-- Form Section -->
+<form class="space-y-8" onsubmit="return false;">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant flex items-center gap-2" for="email">
+                            Corporate Email
+                        </label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="alternate_email">alternate_email</span>
+</div>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-none rounded-lg focus:ring-0 text-on-surface placeholder:text-outline/50 transition-all duration-200 border-b-2 border-transparent focus:border-primary" id="email" name="email" placeholder="name@company.com" type="email"/>
+</div>
+</div>
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary py-4 px-6 rounded-lg font-semibold flex items-center justify-center gap-2 transition-transform duration-200 active:scale-[0.98] hover:opacity-95 shadow-lg shadow-primary/10 group">
+<span>Send Recovery Link</span>
+<span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+<!-- Footer Links -->
+<div class="mt-12 pt-8 border-t border-outline-variant/10 flex flex-col items-center gap-4">
+<a class="flex items-center gap-2 text-sm font-medium text-secondary hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-base" data-icon="keyboard_backspace">keyboard_backspace</span>
+                        Back to Login
+                    </a>
+</div>
+</div>
+</div>
+<!-- System Status/Trust Indicators -->
+<div class="mt-8 flex justify-center gap-8 opacity-40 grayscale pointer-events-none">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter font-label">NR-01 Compliant</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="lock">lock</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter font-label">AES-256 Encrypted</span>
+</div>
+</div>
+</main>
+<!-- Background Decorative Element -->
+<div class="fixed bottom-0 right-0 p-12 opacity-5 hidden lg:block">
+<span class="material-symbols-outlined text-[320px] leading-none select-none" data-icon="policy" style="font-variation-settings: 'wght' 100;">policy</span>
+</div>
+<!-- Background Image with Tonal Depth -->
+<div class="fixed inset-0 -z-10 bg-surface">
+<div class="absolute top-0 right-0 w-1/2 h-full bg-surface-container-low/30" style="clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);">
+<div class="w-full h-full opacity-20 overflow-hidden">
+<img alt="Architectural clean office space" class="w-full h-full object-cover" data-alt="Modern minimalist architectural office interior with large windows soft grey concrete textures and clinical clean morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy_yAtQc4sbgKFI9z8beQcUBXg93973XLhxq3ejS0FSZLJRDSVYYbejhe5-0p-AJVUfkn333yc3f0RAIdtTD6C-781Dfl9rF_d1I9ePXswJEOXRcQz2aNq7yxVXgXHMXV-PSqzaokFnGEfpqUk7dFu8P8oIpa56OBD9v2RdoIPykOvvU3f9Tu83rH_zrjNhqiy730FqLOwKWKev7xDNvzOVsApFUpMtV0a57F4_6lCp89-NT2mWBBE7gF52yipv7tNMSAyCp6KhaA"/>
+</div>
+</div>
+</div>
+</body></html>

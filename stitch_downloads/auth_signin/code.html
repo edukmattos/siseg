@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Autenticação: Login | Occupational Excellence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#d5e3fc",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#d8dadc",
+                        "surface-container-highest": "#e0e3e5",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-surface-variant": "#45474c",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#f7f9fb",
+                        "on-primary-fixed-variant": "#3c475a",
+                        "primary-fixed-dim": "#bcc7de",
+                        "surface-variant": "#e0e3e5",
+                        "on-tertiary-container": "#a38c6a",
+                        "on-tertiary-fixed-variant": "#564427",
+                        "tertiary": "#1e1200",
+                        "surface": "#f7f9fb",
+                        "primary-fixed": "#d8e3fb",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#1e293b",
+                        "tertiary-fixed-dim": "#ddc39d",
+                        "inverse-primary": "#bcc7de",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#091426",
+                        "tertiary-container": "#35260c",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "on-primary-container": "#8590a6",
+                        "background": "#f7f9fb",
+                        "secondary": "#515f74",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#2d3133",
+                        "on-background": "#191c1e",
+                        "on-tertiary-fixed": "#271902",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary-container": "#57657a",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "secondary-fixed": "#d5e3fc",
+                        "tertiary-fixed": "#fadfb8",
+                        "outline": "#75777d",
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "on-primary-fixed": "#111c2d",
+                        "surface-tint": "#545f73",
+                        "surface-container-low": "#f2f4f6",
+                        "on-surface": "#191c1e",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "outline-variant": "#c5c6cd"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-manrope { font-family: 'Manrope', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<main class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4">
+<!-- Background Architectural Elements -->
+<div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+<div class="absolute top-[-10%] left-[-5%] w-[60%] h-[60%] rounded-full bg-gradient-to-br from-primary/5 to-transparent blur-3xl"></div>
+<div class="absolute bottom-[-10%] right-[-5%] w-[50%] h-[50%] rounded-full bg-gradient-to-tl from-secondary-container/20 to-transparent blur-3xl"></div>
+<!-- Abstract Architectural Grid -->
+<div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 2px 2px, #091426 1px, transparent 0); background-size: 48px 48px;"></div>
+</div>
+<!-- Navigation Suppression: Shell is hidden for transactional screens -->
+<!-- Header Branding (Anchored) -->
+<div class="z-10 mb-10 text-center">
+<h1 class="font-manrope font-extrabold text-3xl tracking-tight text-primary mb-2">Occupational Excellence</h1>
+<div class="h-1 w-12 bg-primary mx-auto rounded-full"></div>
+</div>
+<!-- Login Card -->
+<div class="z-10 w-full max-w-md">
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_20px_40px_rgba(9,20,38,0.05)] overflow-hidden transition-all duration-300">
+<div class="p-8 md:p-10">
+<div class="mb-8">
+<h2 class="font-manrope font-bold text-2xl text-on-surface mb-1">Welcome back</h2>
+<p class="font-body text-on-surface-variant text-sm">Autenticação: Login</p>
+</div>
+<form action="#" class="space-y-6" method="POST">
+<!-- Corporate Email -->
+<div class="space-y-2">
+<label class="block font-label text-sm font-semibold text-on-surface-variant tracking-wide" for="email">CORPORATE EMAIL</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline transition-colors group-focus-within:text-primary" style="font-size: 20px;">mail</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-low border-none rounded-lg font-body text-on-surface focus:ring-0 focus:bg-white transition-all border-b-2 border-transparent focus:border-primary" id="email" name="email" placeholder="name@company.com" required="" type="email"/>
+</div>
+</div>
+<!-- Password -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="block font-label text-sm font-semibold text-on-surface-variant tracking-wide" for="password">PASSWORD</label>
+<a class="font-label text-xs font-semibold text-primary hover:opacity-80 transition-opacity" href="#">Forgot Password?</a>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline transition-colors group-focus-within:text-primary" style="font-size: 20px;">lock</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-low border-none rounded-lg font-body text-on-surface focus:ring-0 focus:bg-white transition-all border-b-2 border-transparent focus:border-primary" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+</div>
+</div>
+<!-- Options -->
+<div class="flex items-center">
+<input class="w-4 h-4 text-primary bg-surface-container-low border-none rounded focus:ring-primary focus:ring-offset-0" id="remember" name="remember" type="checkbox"/>
+<label class="ml-2 font-body text-sm text-on-surface-variant" for="remember">Keep me logged in</label>
+</div>
+<!-- Sign In Button -->
+<button class="w-full py-4 px-6 bg-gradient-to-br from-primary to-primary-container text-on-primary font-manrope font-bold rounded-lg shadow-lg hover:opacity-95 transform transition-all active:scale-95 duration-200" type="submit">
+                            Sign In
+                        </button>
+</form>
+<!-- SSO Separator -->
+<div class="relative my-8">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-outline-variant opacity-15"></div>
+</div>
+<div class="relative flex justify-center text-xs">
+<span class="px-3 bg-surface-container-lowest text-on-surface-variant font-label font-medium">ENTERPRISE COMPLIANCE SSO</span>
+</div>
+</div>
+<!-- SSO Options -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-3 px-4 py-3 border border-outline-variant/15 rounded-lg hover:bg-surface-container-low transition-colors duration-200 group">
+<img alt="Google Logo" class="w-4 h-4 grayscale group-hover:grayscale-0 transition-all" data-alt="Official Google favicon icon logo in high resolution" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFHK2FRuBM7JMOHo8R7xlRce2iHj1dniWL-g60CfS1MoYiWF4Jp2lHL26f9m-L29L1BA4ccblo9srwFwmPxs1iin_RG8Ie4-bl1Y7F4lVMmZ7SbyE3PYEWSXx-zH0fc2rvmitL5On3z4UOaKZbW4zV5GLDz0Zc_TV3D3d7pI_wz2M4_uAQnoDVR1ay2N6qstastvkYTyZgME5dnePSBbdVnqse7YlbzlB6it58pRoOyyLHVZuLqyyJ2BVVmNqJAfm1TYeqYV5-LcQ"/>
+<span class="font-body text-sm font-semibold text-on-surface">Google</span>
+</button>
+<button class="flex items-center justify-center gap-3 px-4 py-3 border border-outline-variant/15 rounded-lg hover:bg-surface-container-low transition-colors duration-200 group">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" style="font-size: 20px;">grid_view</span>
+<span class="font-body text-sm font-semibold text-on-surface">Microsoft</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Footer Links -->
+<footer class="mt-8 flex justify-center gap-6 text-xs font-label font-medium text-on-surface-variant/60">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">NR-01 Guidelines</a>
+</footer>
+</div>
+<!-- Compliance Branding / Subtle Imagery -->
+<div class="fixed bottom-0 right-0 p-8 hidden lg:block opacity-40">
+<div class="flex items-center gap-3 font-manrope font-bold text-primary tracking-tighter">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">security</span>
+<div class="flex flex-col leading-tight">
+<span class="text-xs uppercase tracking-widest text-on-surface-variant/50">System Status</span>
+<span>Fully Encrypted</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Decorative Corner Architecture -->
+<div class="fixed top-0 right-0 w-32 h-32 pointer-events-none overflow-hidden opacity-5 lg:opacity-10">
+<div class="absolute top-0 right-0 w-full h-full border-t-[40px] border-r-[40px] border-primary-container"></div>
+</div>
+</body></html>

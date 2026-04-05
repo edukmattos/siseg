@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#545f73",
+                    "on-secondary-fixed": "#0d1c2e",
+                    "secondary-fixed-dim": "#b9c7df",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#564427",
+                    "tertiary-fixed-dim": "#ddc39d",
+                    "surface-dim": "#d8dadc",
+                    "tertiary-container": "#35260c",
+                    "on-secondary-fixed-variant": "#3a485b",
+                    "secondary": "#515f74",
+                    "on-tertiary-container": "#a38c6a",
+                    "outline-variant": "#c5c6cd",
+                    "on-background": "#191c1e",
+                    "on-surface": "#191c1e",
+                    "surface": "#f7f9fb",
+                    "primary-container": "#1e293b",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#3c475a",
+                    "secondary-fixed": "#d5e3fc",
+                    "on-error-container": "#93000a",
+                    "outline": "#75777d",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container-low": "#f2f4f6",
+                    "primary-fixed": "#d8e3fb",
+                    "tertiary-fixed": "#fadfb8",
+                    "inverse-surface": "#2d3133",
+                    "error": "#ba1a1a",
+                    "surface-container": "#eceef0",
+                    "surface-bright": "#f7f9fb",
+                    "surface-container-high": "#e6e8ea",
+                    "primary-fixed-dim": "#bcc7de",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-highest": "#e0e3e5",
+                    "primary": "#091426",
+                    "background": "#f7f9fb",
+                    "on-surface-variant": "#45474c",
+                    "surface-variant": "#e0e3e5",
+                    "on-tertiary-fixed": "#271902",
+                    "on-primary-container": "#8590a6",
+                    "inverse-primary": "#bcc7de",
+                    "secondary-container": "#d5e3fc",
+                    "tertiary": "#1e1200",
+                    "on-secondary-container": "#57657a",
+                    "on-primary-fixed": "#111c2d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .glass-sidebar {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- TopNavBar: Fixed to top, using JSON style for Occupational Excellence -->
+<header class="flex justify-between items-center w-full px-8 h-16 fixed top-0 left-0 z-50 bg-[#f7f9fb]/80 backdrop-blur-md">
+<div class="flex items-center gap-4">
+<span class="text-xl font-black text-slate-900 tracking-tight">Occupational Excellence</span>
+<div class="h-6 w-px bg-outline-variant/30 mx-2"></div>
+<span class="text-sm font-semibold text-on-surface-variant tracking-wide">AVALIAÇÃO NR-01</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex flex-col items-end">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">TEMPO RESTANTE</span>
+<span class="text-lg font-bold font-headline text-primary">00:42:15</span>
+</div>
+<div class="h-10 w-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined">timer</span>
+</div>
+</div>
+</header>
+<main class="flex-1 mt-16 flex flex-col md:flex-row">
+<!-- SideNavBar: Using JSON style for navigation context, suppressing main labels for focus -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 glass-sidebar border-r border-slate-200/15 flex flex-col z-40">
+<div class="p-6 flex flex-col gap-8 h-full">
+<div class="space-y-1">
+<h3 class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-4">Progresso da Prova</h3>
+<div class="grid grid-cols-4 gap-2">
+<!-- Navigation Grid -->
+<button class="h-10 w-10 rounded-lg flex items-center justify-center text-xs font-bold bg-primary text-on-primary">01</button>
+<button class="h-10 w-10 rounded-lg flex items-center justify-center text-xs font-bold bg-primary text-on-primary">02</button>
+<button class="h-10 w-10 rounded-lg flex items-center justify-center text-xs font-bold bg-primary text-on-primary">03</button>
+<button class="h-10 w-10 rounded-lg flex items-center justify-center text-xs font-bold border-2 border-primary text-primary">04</button>
+<button class="h-10 w-10 rounded-lg flex items-center justify-center text-xs font-medium bg-surface-container text-on-surface-variant">05</button>
+<button class="h-10 w-10 rounded-lg flex items-center justify-center text-xs font-medium bg-surface-container text-on-surface-variant">06</button>
+<button class="h-10 w-10 rounded-lg flex items-center justify-center text-xs font-medium bg-surface-container text-on-surface-variant">07</button>
+<button class="h-10 w-10 rounded-lg flex items-center justify-center text-xs font-medium bg-surface-container text-on-surface-variant">08</button>
+<button class="h-10 w-10 rounded-lg flex items-center justify-center text-xs font-medium bg-surface-container text-on-surface-variant">09</button>
+<button class="h-10 w-10 rounded-lg flex items-center justify-center text-xs font-medium bg-surface-container text-on-surface-variant">10</button>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t border-outline-variant/20">
+<div class="flex items-center gap-3 mb-6">
+<img alt="Avatar" class="h-10 w-10 rounded-xl object-cover" data-alt="professional headshot of a mature male safety engineer wearing a subtle smile and business casual attire with soft background lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS2vfglyx6FN9Y5K-YJ9bHzL71VoL1eVr3K9Ucq_0UbkyEK33BO0IbPsToONhDAOXJXZ1OjOGEDZTS7uVXWrRy_MkWMhEgKbSx8taaqVndd3KHk6qpidhzwJQrdmrNvJlCLaoJDtPh8T18-yaUaAJXKdGmB5w8Q36JubBXYKe8g-LrOVZjzyT7E3bWiZAVZ_g6guUz9sUAl47-RZXF35y1haRArOeKU0-14wwKit89wabrbPal0fbQM2-NZUprBJay7QeNnPCeWp0"/>
+<div>
+<p class="text-xs font-bold text-on-surface">Ricardo Silveira</p>
+<p class="text-[10px] text-on-surface-variant">ID: 44291-B</p>
+</div>
+</div>
+<button class="w-full py-3 px-4 bg-error text-on-error rounded-xl font-bold text-xs flex items-center justify-center gap-2 hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-sm">logout</span>
+                        Abandonar Prova
+                    </button>
+</div>
+</div>
+</aside>
+<!-- Main Content Area: Focus-driven asymmetrical layout -->
+<div class="flex-1 ml-64 p-8 bg-surface">
+<div class="max-w-4xl mx-auto flex flex-col gap-8">
+<!-- Course Header Card -->
+<div class="flex justify-between items-end">
+<div>
+<p class="text-sm font-medium text-on-primary-container mb-1">Módulo 04: Gerenciamento de Riscos Ocupacionais (GRO)</p>
+<h2 class="text-3xl font-extrabold text-primary tracking-tight">Avaliação de Certificação</h2>
+</div>
+<div class="text-right">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Status de Conclusão</p>
+<p class="text-sm font-bold text-primary">Questão 04 de 10</p>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full w-2/5 bg-gradient-to-r from-primary to-primary-container transition-all duration-500"></div>
+</div>
+<!-- Question Area -->
+<section class="bg-surface-container-lowest rounded-xl p-10 shadow-[0_20px_40px_rgba(9,20,38,0.03)] border border-outline-variant/5">
+<div class="mb-8">
+<span class="inline-block px-3 py-1 bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold rounded-full mb-4 uppercase tracking-wider">Múltipla Escolha</span>
+<h3 class="text-xl font-bold text-on-surface leading-relaxed">
+                            De acordo com a nova NR-01, a organização deve implementar, por estabelecimento, o gerenciamento de riscos ocupacionais em suas atividades. Qual documento é o pilar central desta gestão?
+                        </h3>
+</div>
+<!-- Alternatives -->
+<div class="space-y-3">
+<label class="group flex items-center p-5 rounded-xl bg-surface-container-low hover:bg-surface-container border-2 border-transparent cursor-pointer transition-all">
+<input class="hidden" name="question-4" type="radio"/>
+<div class="h-6 w-6 rounded-full border-2 border-outline-variant group-hover:border-primary flex items-center justify-center mr-4 transition-colors">
+<div class="h-2.5 w-2.5 rounded-full bg-primary opacity-0 group-checked:opacity-100"></div>
+</div>
+<span class="text-sm font-medium text-on-surface">PCMSO - Programa de Controle Médico de Saúde Ocupacional</span>
+</label>
+<label class="group flex items-center p-5 rounded-xl bg-surface-container-low hover:bg-surface-container border-2 border-primary cursor-pointer transition-all">
+<input checked="" class="hidden" name="question-4" type="radio"/>
+<div class="h-6 w-6 rounded-full border-2 border-primary flex items-center justify-center mr-4 transition-colors">
+<div class="h-2.5 w-2.5 rounded-full bg-primary"></div>
+</div>
+<span class="text-sm font-semibold text-primary">PGR - Programa de Gerenciamento de Riscos</span>
+</label>
+<label class="group flex items-center p-5 rounded-xl bg-surface-container-low hover:bg-surface-container border-2 border-transparent cursor-pointer transition-all">
+<input class="hidden" name="question-4" type="radio"/>
+<div class="h-6 w-6 rounded-full border-2 border-outline-variant group-hover:border-primary flex items-center justify-center mr-4 transition-colors">
+<div class="h-2.5 w-2.5 rounded-full bg-primary opacity-0 group-checked:opacity-100"></div>
+</div>
+<span class="text-sm font-medium text-on-surface">PPRA - Programa de Prevenção de Riscos Ambientais</span>
+</label>
+<label class="group flex items-center p-5 rounded-xl bg-surface-container-low hover:bg-surface-container border-2 border-transparent cursor-pointer transition-all">
+<input class="hidden" name="question-4" type="radio"/>
+<div class="h-6 w-6 rounded-full border-2 border-outline-variant group-hover:border-primary flex items-center justify-center mr-4 transition-colors">
+<div class="h-2.5 w-2.5 rounded-full bg-primary opacity-0 group-checked:opacity-100"></div>
+</div>
+<span class="text-sm font-medium text-on-surface">LTCAT - Laudo Técnico das Condições Ambientais do Trabalho</span>
+</label>
+</div>
+</section>
+<!-- Navigation Controls -->
+<div class="flex justify-between items-center mt-4">
+<button class="flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm text-on-surface-variant hover:text-primary transition-colors group">
+<span class="material-symbols-outlined text-lg group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                        Anterior
+                    </button>
+<div class="flex gap-4">
+<button class="px-8 py-3 rounded-xl bg-primary text-on-primary font-bold text-sm flex items-center gap-2 shadow-lg shadow-primary/10 hover:opacity-90 transition-all">
+                            Próxima Questão
+                            <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Footer Summary Banner -->
+<div class="mt-8 p-6 rounded-xl bg-surface-container-high/50 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">info</span>
+</div>
+<p class="text-xs text-on-secondary-fixed-variant leading-relaxed max-w-md">
+                            Ao finalizar, você não poderá alterar suas respostas. Certifique-se de que revisou todos os itens marcados como pendentes antes de submeter.
+                        </p>
+</div>
+<button class="px-6 py-3 bg-primary text-on-primary rounded-xl font-bold text-sm hover:scale-105 active:scale-95 transition-all">
+                        Finalizar Avaliação
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Modal Background (Overlay example) -->
+<div class="hidden fixed inset-0 z-[100] bg-primary/40 backdrop-blur-sm flex items-center justify-center p-4">
+<div class="bg-surface-container-lowest rounded-2xl max-w-md w-full p-8 shadow-2xl">
+<div class="h-16 w-16 bg-error-container text-on-error-container rounded-full flex items-center justify-center mb-6 mx-auto">
+<span class="material-symbols-outlined text-4xl">warning</span>
+</div>
+<h3 class="text-2xl font-extrabold text-center text-primary mb-2 tracking-tight">Confirmar Envio?</h3>
+<p class="text-sm text-on-surface-variant text-center mb-8 leading-relaxed">
+                Você respondeu a 10 de 10 questões. Deseja realmente finalizar sua avaliação e enviar para processamento?
+            </p>
+<div class="grid grid-cols-2 gap-4">
+<button class="py-4 rounded-xl font-bold text-on-surface-variant hover:bg-surface-container-low transition-colors">Revisar</button>
+<button class="py-4 rounded-xl bg-primary text-on-primary font-bold shadow-lg shadow-primary/20">Sim, Finalizar</button>
+</div>
+</div>
+</div>
+</body></html>

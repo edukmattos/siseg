@@ -21,6 +21,48 @@ $$;
 ALTER TABLE public.courses ENABLE ROW LEVEL SECURITY;
 
 -- ============================================================
+-- FUNÇÃO AUXILIAR PARA VERIFICAR SE É INSTRUTOR
+-- ============================================================
+DROP FUNCTION IF EXISTS public.is_instructor();
+
+CREATE OR REPLACE FUNCTION public.is_instructor()
+RETURNS boolean
+LANGUAGE sql
+STABLE
+SECURITY DEFINER
+AS $$
+  SELECT (auth.jwt() ->> 'user_metadata')::jsonb ->> 'role' IN ('instructor', 'teacher');
+$$;
+
+-- ============================================================
+-- FUNÇÃO AUXILIAR PARA VERIFICAR SE É SUPER ADMIN
+-- ============================================================
+DROP FUNCTION IF EXISTS public.is_super_admin();
+
+CREATE OR REPLACE FUNCTION public.is_super_admin()
+RETURNS boolean
+LANGUAGE sql
+STABLE
+SECURITY DEFINER
+AS $$
+  SELECT (auth.jwt() ->> 'user_metadata')::jsonb ->> 'role' = 'super_admin';
+$$;
+
+-- ============================================================
+-- FUNÇÃO AUXILIAR PARA OBTER O ID DO USUÁRIO (INTEGER) A PARTIR DO UUID
+-- ============================================================
+DROP FUNCTION IF EXISTS public.get_current_user_id();
+
+CREATE OR REPLACE FUNCTION public.get_current_user_id()
+RETURNS bigint
+LANGUAGE sql
+STABLE
+SECURITY DEFINER
+AS $$
+  SELECT id FROM public.users WHERE user_uuid = auth.uid() LIMIT 1;
+$$;
+
+-- ============================================================
 -- POLÍTICAS DE ACESSO
 -- ============================================================
 
@@ -34,20 +76,16 @@ CREATE POLICY "courses_select_authenticated"
 CREATE POLICY "courses_all_super_admin"
   ON public.courses
   FOR ALL
-  USING (
-    (auth.jwt() ->> 'user_metadata')::jsonb ->> 'role' = 'super_admin'
-  )
-  WITH CHECK (
-    (auth.jwt() ->> 'user_metadata')::jsonb ->> 'role' = 'super_admin'
-  );
+  USING ( public.is_super_admin() )
+  WITH CHECK ( public.is_super_admin() );
 
--- 3. Instrutores podem inserir cursos (próprios cursos)
+-- 3. Instrutores podem inserir cursos (se instructor_id for seu próprio ID)
 CREATE POLICY "courses_insert_instructor"
   ON public.courses
   FOR INSERT
   WITH CHECK (
-    (auth.jwt() ->> 'user_metadata')::jsonb ->> 'role' IN ('instructor', 'teacher')
-    AND (NEW.instructor_id = auth.uid() OR NEW.instructor_id IS NULL)
+    public.is_instructor()
+    AND instructor_id = public.get_current_user_id()
   );
 
 -- 4. Instrutores podem atualizar APENAS seus próprios cursos
@@ -55,12 +93,12 @@ CREATE POLICY "courses_update_instructor"
   ON public.courses
   FOR UPDATE
   USING (
-    (auth.jwt() ->> 'user_metadata')::jsonb ->> 'role' IN ('instructor', 'teacher')
-    AND instructor_id = auth.uid()
+    public.is_instructor()
+    AND instructor_id = public.get_current_user_id()
   )
   WITH CHECK (
-    (auth.jwt() ->> 'user_metadata')::jsonb ->> 'role' IN ('instructor', 'teacher')
-    AND instructor_id = auth.uid()
+    public.is_instructor()
+    AND instructor_id = public.get_current_user_id()
   );
 
 -- 5. Instrutores podem deletar APENAS seus próprios cursos (em status pendente)
@@ -68,8 +106,8 @@ CREATE POLICY "courses_delete_instructor"
   ON public.courses
   FOR DELETE
   USING (
-    (auth.jwt() ->> 'user_metadata')::jsonb ->> 'role' IN ('instructor', 'teacher')
-    AND instructor_id = auth.uid()
+    public.is_instructor()
+    AND instructor_id = public.get_current_user_id()
     AND is_active = false
   );
 

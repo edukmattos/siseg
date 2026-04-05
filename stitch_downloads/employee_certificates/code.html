@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Certificado Digital - Occupational Excellence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#57657a",
+                    "on-tertiary-fixed": "#271902",
+                    "on-tertiary-fixed-variant": "#564427",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#e0e3e5",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-dim": "#d8dadc",
+                    "background": "#f7f9fb",
+                    "surface-bright": "#f7f9fb",
+                    "primary": "#091426",
+                    "on-secondary-fixed": "#0d1c2e",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#ddc39d",
+                    "surface-container-high": "#e6e8ea",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#45474c",
+                    "surface-tint": "#545f73",
+                    "on-secondary-fixed-variant": "#3a485b",
+                    "on-primary-fixed": "#111c2d",
+                    "surface-container-low": "#f2f4f6",
+                    "secondary-container": "#d5e3fc",
+                    "outline": "#75777d",
+                    "surface": "#f7f9fb",
+                    "primary-fixed-dim": "#bcc7de",
+                    "tertiary": "#1e1200",
+                    "tertiary-container": "#35260c",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#3c475a",
+                    "secondary": "#515f74",
+                    "inverse-primary": "#bcc7de",
+                    "surface-container": "#eceef0",
+                    "secondary-fixed-dim": "#b9c7df",
+                    "inverse-surface": "#2d3133",
+                    "tertiary-fixed": "#fadfb8",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#a38c6a",
+                    "surface-variant": "#e0e3e5",
+                    "error-container": "#ffdad6",
+                    "primary-fixed": "#d8e3fb",
+                    "on-background": "#191c1e",
+                    "secondary-fixed": "#d5e3fc",
+                    "on-surface": "#191c1e",
+                    "outline-variant": "#c5c6cd",
+                    "primary-container": "#1e293b",
+                    "on-primary-container": "#8590a6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .certificate-canvas {
+            aspect-ratio: 1.414 / 1;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/60 backdrop-blur-xl flex justify-between items-center px-8 h-16 w-full max-w-full shadow-[0_20px_40px_rgba(9,20,38,0.05)]">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-slate-900 font-headline">Occupational Excellence</span>
+<div class="hidden md:flex gap-6">
+<a class="text-slate-500 font-medium hover:opacity-90 transition-opacity" href="#">Dashboard</a>
+<a class="text-slate-900 border-b-2 border-slate-900 pb-1 font-bold tracking-tight" href="#">Training</a>
+<a class="text-slate-500 font-medium hover:opacity-90 transition-opacity" href="#">Compliance</a>
+<a class="text-slate-500 font-medium hover:opacity-90 transition-opacity" href="#">History</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-900 hover:opacity-90 transition-opacity"><span class="material-symbols-outlined" data-icon="notifications">notifications</span></button>
+<button class="p-2 text-slate-900 hover:opacity-90 transition-opacity"><span class="material-symbols-outlined" data-icon="settings">settings</span></button>
+<img alt="Inspector Profile" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="close-up portrait of a professional inspector in corporate attire with a clean modern office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1YzKrMjo570-CBw52tVM1EDnyy_pZh9eCag8bsEMeUlehVEM5E588KtgSlhCPMXszRGTgWT2awoF3Ujzx-zdbSvMv1pGiH31FFfw89DHHr_EmIPETljm_vf-uaWHgEgw9TOJ2JvbQ20pW55BY0oJCvtJEv7C58M2K14qripSR31PuJyDSw4iYp79MDQgDq-A3ePLukadgdxjPqrkpLXQ5NmLHGf6Ecn-PIEx46Kos_i_0ogyk0YV03bzlueTx_Hsvnc1kLGW5tVQ"/>
+</div>
+</nav>
+<div class="pt-24 pb-12 px-8 flex flex-col lg:flex-row gap-8 max-w-[1440px] mx-auto">
+<!-- Left Sidebar (SideNavBar Concept) -->
+<aside class="lg:w-64 flex flex-col shrink-0">
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col gap-8">
+<div class="flex flex-col gap-2">
+<span class="font-headline font-extrabold uppercase tracking-widest text-[10px] text-on-surface-variant">Documento NR-01</span>
+<h2 class="text-xl font-bold font-headline text-primary">NR-01 Ledger</h2>
+<p class="text-xs text-on-secondary-container">Enterprise Compliance</p>
+</div>
+<div class="flex flex-col gap-4">
+<button class="flex items-center gap-3 w-full p-3 rounded-lg bg-primary text-white hover:opacity-90 transition-all scale-95 active:transition-transform">
+<span class="material-symbols-outlined" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-sm font-medium">Verify Document</span>
+</button>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="relative flex items-center gap-3 p-3 text-sm font-medium text-slate-900 before:absolute before:left-0 before:w-1 before:h-6 before:bg-slate-900 before:rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+                        Certificates
+                    </a>
+<a class="flex items-center gap-3 p-3 text-sm font-medium text-slate-400 hover:text-slate-900 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="shield">shield</span>
+                        Safety Audits
+                    </a>
+<a class="flex items-center gap-3 p-3 text-sm font-medium text-slate-400 hover:text-slate-900 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+                        Risk Assessment
+                    </a>
+</nav>
+<div class="mt-auto pt-4 border-t border-slate-100 flex flex-col gap-2">
+<button class="flex items-center gap-3 p-3 text-sm text-slate-400 hover:text-slate-900">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span> Support
+                    </button>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col gap-8">
+<!-- Certificate Canvas -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_20px_40px_rgba(9,20,38,0.05)] overflow-hidden">
+<div class="certificate-canvas relative p-12 flex flex-col items-center justify-between border-[16px] border-surface-container-low m-4">
+<!-- Subtle Architectural Background Patterns -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#091426 1px, transparent 1px); background-size: 20px 20px;"></div>
+<!-- Certificate Header -->
+<div class="text-center z-10">
+<img alt="Company Logo" class="h-12 mx-auto mb-6" data-alt="minimalist corporate logo with architectural lines in dark obsidian and slate colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrfMQshOqXGjyL6UevmMrNmjg43a9PtwkMaGIBdiew473VHzzHqtIbGi5-N6B5SQ24WJ4VMc7LRs5v4moPCWb2b_2GfDEOmA62yNTYUGAmSOMAOpmweNJSyBjGu5nxFpUKzLsxtlObJIkBPW7DnbF-mbkOGyOu2e_SHKnUeQS3wtvnW9vEJjLSOWh8Ej6pKfcFNjCa7gExmGCa0ngTB_DMlg6wZCnlzgp7QV0HAl5ea6vZZw2B9qLV5eqbYGEa6W4IBXq75KNfD6g"/>
+<h1 class="font-headline text-4xl font-extrabold tracking-tight text-primary mb-2">CERTIFICADO DE CAPACITAÇÃO</h1>
+<p class="font-label text-sm uppercase tracking-[0.2em] text-on-secondary-container">Em conformidade com a Norma Regulamentadora NR-01</p>
+</div>
+<!-- Certificate Content -->
+<div class="text-center z-10 max-w-2xl">
+<p class="text-lg text-on-surface-variant mb-4">Certificamos para os devidos fins que</p>
+<h2 class="font-headline text-5xl font-bold text-primary mb-8 underline decoration-primary-fixed decoration-4 underline-offset-8">RICARDO AUGUSTO DA SILVA</h2>
+<p class="text-lg text-on-surface-variant leading-relaxed">
+                            concluiu com aproveitamento o treinamento técnico de 
+                            <span class="font-bold text-primary">Segurança e Saúde no Trabalho</span>, 
+                            abrangendo as diretrizes de gerenciamento de riscos ocupacionais.
+                        </p>
+</div>
+<!-- Details Row -->
+<div class="grid grid-cols-3 gap-12 w-full max-w-3xl z-10 py-8 border-y border-outline-variant/20">
+<div class="text-center">
+<span class="block text-[10px] uppercase tracking-widest text-on-secondary-container mb-1">Carga Horária</span>
+<span class="font-headline font-bold text-lg text-primary">16 Horas</span>
+</div>
+<div class="text-center">
+<span class="block text-[10px] uppercase tracking-widest text-on-secondary-container mb-1">Conclusão</span>
+<span class="font-headline font-bold text-lg text-primary">24 Out 2023</span>
+</div>
+<div class="text-center">
+<span class="block text-[10px] uppercase tracking-widest text-on-secondary-container mb-1">Validade</span>
+<span class="font-headline font-bold text-lg text-primary">24 Out 2025</span>
+</div>
+</div>
+<!-- Certificate Footer (Signatures & QR) -->
+<div class="w-full flex justify-between items-end z-10">
+<div class="flex flex-col items-center">
+<img alt="Signature Instructor" class="h-12 mb-2" data-alt="clean digital signature in black ink on a transparent background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4S2QJaYSnCy8wqt00d1uHNzj1xqHDb9dmROQfWjCMC2Ys98DQJq9DFCAIbP4R2XZJQMsYF65z1E6cRg_aIJLOdx2jh9CJnzYe4HB8-EfRZcHElEyGEZBA73RqVF5P71Dc3pytjV9fzWJxF8h1xYOdgbdZG4Xkj63eoiWRNEh5mLw0y1wi0hyurLEJhyT3Ys34XbpaZYs0HbiX12IoeEbaezzxNN_IuWAcwNTevgDDWv9GpV0-AjY0PHDr0lz43SpHhXHyy6NLgkw"/>
+<div class="w-48 h-[1px] bg-outline-variant mb-2"></div>
+<span class="text-[10px] font-bold text-primary uppercase">Instrutor Responsável</span>
+<span class="text-[9px] text-on-secondary-container">Eng. Marcos Vinícius - CREA/SP 12345</span>
+</div>
+<div class="flex flex-col items-center relative">
+<!-- Authenticity Seal -->
+<div class="absolute -top-16 flex items-center justify-center">
+<div class="w-20 h-20 rounded-full border-2 border-primary-fixed flex items-center justify-center opacity-20">
+<span class="material-symbols-outlined text-4xl" data-icon="verified_user">verified_user</span>
+</div>
+</div>
+<img alt="Validation QR Code" class="w-24 h-24 p-2 bg-white border border-slate-100 rounded" data-alt="minimalist QR code with a small shield icon in the center in dark blue" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXevCz-SDgkh8LGUH3ZTbzjr_EzuHKpMqpFrPV1X_j_6m5iLO_gzVMgDjnGChLl43XIao7Tm_I3-fDHJLp1xLGzxYom88gR--DxtlwL9arXH70tGCsLID5ugZiSlwQNnZiM6tndbkHCpGQ2aJppkmi4BRVbBCaUwAcSt7lXU0IYa_EuZu-6_UrFhZXpHbdzwDV3TF31mpb8lGthLIJ13XBULZdIE2YOO8p07vlKZpW0kLb_w_xAvbtEPiO_3U5kQySZjPRbBll2oQ"/>
+<span class="text-[9px] mt-2 font-mono text-on-secondary-container">ID: OE-8829-X92</span>
+</div>
+<div class="flex flex-col items-center">
+<img alt="Signature Tech Manager" class="h-12 mb-2" data-alt="stylized professional signature in digital format using dark slate ink" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9NDbzrsFGsy8CLShWwBYJluzlapQP0rINSQdJdtvsUwyTr93yfU-IE5vCQiIPKDl7X3Kay7bFO3AbObDvpYPx6-a1Y2P1kIUyuEHe4qa2iut4S3-qG_iqG377zLScHpfeSeButYa6T6aCqN5RtOGse9KwPeC93Fp6UZwibku5Jm1bEX3z_94rFD-1WY03AhrGsx9YsAa4nhTz7c8WRNlFgTeZxx_LLA2PA0H05nsYNfMtmjrwv-EkH9zVpbWuVtw_7B00HeSe0rM"/>
+<div class="w-48 h-[1px] bg-outline-variant mb-2"></div>
+<span class="text-[10px] font-bold text-primary uppercase">Responsável Técnico</span>
+<span class="text-[9px] text-on-secondary-container">Diretoria de Compliance</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Bento Grid: Security & Metadata -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Security Card -->
+<div class="bg-surface-container-low rounded-xl p-6 border-l-4 border-primary shadow-sm">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="enhanced_encryption" style="font-variation-settings: 'FILL' 1;">enhanced_encryption</span>
+<h3 class="font-headline font-bold text-primary">Validação de Segurança</h3>
+</div>
+<div class="space-y-4">
+<div>
+<span class="text-[10px] uppercase font-bold text-on-secondary-container tracking-tighter">Assinatura Digital (SHA-256 Hash)</span>
+<div class="bg-white/50 p-2 rounded mt-1 font-mono text-xs break-all text-on-surface-variant border border-outline-variant/10">
+                                8e4c12b7a9f0d3c5e6b1a2f3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3
+                            </div>
+</div>
+<div class="flex items-center justify-between bg-primary-fixed/30 p-3 rounded-lg">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-primary-fixed-variant text-sm" data-icon="gavel">gavel</span>
+<span class="text-sm font-medium text-on-primary-fixed-variant">Conformidade Ministério do Trabalho</span>
+</div>
+<span class="bg-primary text-white text-[10px] px-2 py-1 rounded-full font-bold">STATUS: ATIVO</span>
+</div>
+</div>
+</div>
+<!-- Course Summary Card -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-secondary" data-icon="analytics">analytics</span>
+<h3 class="font-headline font-bold text-primary">Resumo do Programa</h3>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-3 bg-surface rounded-lg">
+<span class="text-[10px] text-on-secondary-container block">Módulos</span>
+<span class="font-headline font-bold text-lg">08 Unidades</span>
+</div>
+<div class="p-3 bg-surface rounded-lg">
+<span class="text-[10px] text-on-secondary-container block">Aproveitamento</span>
+<span class="font-headline font-bold text-lg text-primary">94%</span>
+</div>
+<div class="p-3 bg-surface rounded-lg">
+<span class="text-[10px] text-on-secondary-container block">Nível</span>
+<span class="font-headline font-bold text-lg">Avançado</span>
+</div>
+<div class="p-3 bg-surface rounded-lg">
+<span class="text-[10px] text-on-secondary-container block">Prontuário</span>
+<span class="font-headline font-bold text-lg">#29441</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Right Action Sidebar -->
+<aside class="lg:w-80 flex flex-col gap-6 shrink-0">
+<div class="sticky top-24 space-y-6">
+<!-- Action Buttons -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-lg flex flex-col gap-3">
+<h4 class="font-headline font-bold text-sm text-primary mb-2">Ações do Documento</h4>
+<button class="flex items-center justify-between w-full p-4 rounded-xl bg-primary text-white hover:opacity-90 transition-all group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+<span class="text-sm font-semibold">Baixar PDF Assinado</span>
+</div>
+<span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="flex items-center gap-3 w-full p-4 rounded-xl bg-surface border border-outline-variant/30 hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-secondary" data-icon="mail">mail</span>
+<span class="text-sm font-semibold text-secondary">Enviar por E-mail</span>
+</button>
+<button class="flex items-center gap-3 w-full p-4 rounded-xl bg-surface border border-outline-variant/30 hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-[#0077B5]" data-icon="share">share</span>
+<span class="text-sm font-semibold text-secondary">Compartilhar no LinkedIn</span>
+</button>
+<hr class="border-outline-variant/20 my-2"/>
+<button class="flex items-center gap-3 w-full p-4 rounded-xl bg-secondary-container/30 text-on-secondary-fixed-variant hover:bg-secondary-container/50 transition-all">
+<span class="material-symbols-outlined" data-icon="person_search">person_search</span>
+<span class="text-sm font-semibold">Ver Prontuário do Aluno</span>
+</button>
+</div>
+<!-- Compliance Badge -->
+<div class="bg-gradient-to-br from-primary to-primary-container p-6 rounded-xl text-white shadow-xl overflow-hidden relative">
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary-fixed-dim">Verificado</span>
+</div>
+<p class="text-xs text-on-primary-container leading-relaxed">
+                            Este certificado utiliza tecnologia de carimbo de tempo (timestamp) inviolável.
+                        </p>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-9xl" data-icon="security">security</span>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</body></html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#1e293b",
+                    "on-secondary-container": "#57657a",
+                    "on-secondary-fixed-variant": "#3a485b",
+                    "on-error-container": "#93000a",
+                    "outline-variant": "#c5c6cd",
+                    "on-background": "#191c1e",
+                    "on-tertiary-fixed-variant": "#564427",
+                    "on-error": "#ffffff",
+                    "secondary-fixed-dim": "#b9c7df",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#111c2d",
+                    "tertiary-fixed-dim": "#ddc39d",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e0e3e5",
+                    "primary-fixed-dim": "#bcc7de",
+                    "primary-fixed": "#d8e3fb",
+                    "on-primary-container": "#8590a6",
+                    "surface-dim": "#d8dadc",
+                    "surface": "#f7f9fb",
+                    "surface-tint": "#545f73",
+                    "secondary-fixed": "#d5e3fc",
+                    "secondary-container": "#d5e3fc",
+                    "on-secondary-fixed": "#0d1c2e",
+                    "on-tertiary-container": "#a38c6a",
+                    "background": "#f7f9fb",
+                    "on-surface": "#191c1e",
+                    "inverse-surface": "#2d3133",
+                    "surface-container": "#eceef0",
+                    "on-primary-fixed-variant": "#3c475a",
+                    "surface-container-highest": "#e0e3e5",
+                    "outline": "#75777d",
+                    "surface-container-low": "#f2f4f6",
+                    "inverse-primary": "#bcc7de",
+                    "primary": "#091426",
+                    "surface-container-high": "#e6e8ea",
+                    "on-secondary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-container": "#35260c",
+                    "surface-bright": "#f7f9fb",
+                    "secondary": "#515f74",
+                    "on-primary": "#ffffff",
+                    "tertiary": "#1e1200",
+                    "tertiary-fixed": "#fadfb8",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed": "#271902",
+                    "on-surface-variant": "#45474c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .glass-nav {
+            background: rgba(247, 249, 251, 0.6);
+            backdrop-filter: blur(20px);
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- TopNavBar -->
+<header class="w-full h-16 sticky top-0 z-30 flex items-center justify-between px-8 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-md font-['Inter'] text-sm">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="shield">shield</span>
+<span class="font-headline font-extrabold tracking-tight text-primary text-lg">Occupational Excellence</span>
+</div>
+<div class="h-4 w-px bg-outline-variant/30"></div>
+<div class="flex items-center gap-2">
+<span class="text-on-surface-variant font-medium">NR-01 Compliance Course</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative flex items-center bg-surface-container-low px-3 py-1.5 rounded-lg border border-transparent focus-within:border-primary/20 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm ml-2 w-48 placeholder:text-on-secondary-container" placeholder="Search lessons..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="settings">settings</button>
+<div class="h-8 w-8 rounded-full overflow-hidden bg-primary-fixed">
+<img class="w-full h-full object-cover" data-alt="Administrator Profile professional headshot portrait of a man in business attire with neutral lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRwsol8xykYuJWem3x8HM4QQ-bbwgaIhWpJhOjTv3nMmRACRycuI-DVgOoeIWaNrjMgA0PU4FEvMyg11hkTSeW2H4-lKkK02d4_nWvuGMlxK2AX_vGuu7JQ-YLlpBJV0g0E50sNe1cs9j9h9scvfM_ic0JyfW2phq-AuodJ6qD4z6Wh4qCL0DxXC6RMJT7ZJ1l0sDmwMuspNZUlvtMEYSCkYqWlo5zORyoMtvixEP3yRculYt45VY2BQU1YMsJHDMtDi_0irnj4IA"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex min-h-[calc(100vh-4rem)]">
+<!-- Main Content Area -->
+<main class="flex-1 px-12 py-8 mr-80">
+<!-- Breadcrumbs & Status -->
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-2 text-xs font-label uppercase tracking-widest text-on-surface-variant">
+<span>Module 2</span>
+<span class="material-symbols-outlined text-[10px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-bold">Safety Standards</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex flex-col items-end">
+<span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-tighter">Time Spent</span>
+<span class="font-headline font-bold text-primary">12:45 <span class="text-xs font-normal text-on-secondary-container">/ 25:00</span></span>
+</div>
+</div>
+</div>
+<!-- Content Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_20px_40px_rgba(9,20,38,0.02)] overflow-hidden">
+<!-- Video/Media Header -->
+<div class="aspect-video bg-primary relative group cursor-pointer">
+<img class="w-full h-full object-cover opacity-60" data-alt="high-tech industrial laboratory with clean surfaces and safety equipment illuminated by cool blue and white surgical lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-OVfI2sBdtUZyAWy4RSgEXE2rvZGLNe-7fAUnff7gzVvihDquxAwAW_Z-Ip4uKKza3CuMGoXf-yIkt-EYxPzIdylX5gjT5xFMFgvLXtJqkKXvfL8JgUUokvkT8GT56fJgaOJ_SS6Cvg_cMYs3FZKpi7pIbVZdRtqIoieKwquNpPIdOEFe6ETpFjuMQjMh5GrGwOPCCUaH9YuzTQsZzYE-2YGVprlWipanPTeN1qrDIa4J0bAuNfxgKUpaNArarHSyfJXQMdEln-g"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 transition-transform border border-white/20">
+<span class="material-symbols-outlined text-white text-4xl" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<!-- Custom Progress Bar -->
+<div class="absolute bottom-0 left-0 right-0 h-1.5 bg-white/20">
+<div class="h-full bg-gradient-to-r from-primary-fixed to-primary w-1/2"></div>
+</div>
+</div>
+<!-- Action Bar -->
+<div class="p-8 flex items-center justify-between bg-white">
+<div>
+<h1 class="text-2xl font-headline font-extrabold text-primary mb-1">NR-01 Section 2.4: Safety Operational Protocols</h1>
+<p class="text-on-surface-variant text-sm">Understand the fundamental shifts in regulatory compliance for 2024 industrial standards.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-6 py-3 bg-primary text-on-primary rounded-lg font-medium text-sm flex items-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                            Mark as Completed
+                        </button>
+</div>
+</div>
+</div>
+<!-- Navigation Controls -->
+<div class="mt-8 flex items-center justify-between">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors font-medium">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                    Previous Lesson
+                </button>
+<div class="flex-1 mx-12">
+<div class="flex justify-between items-center mb-2">
+<span class="text-[10px] font-bold uppercase text-on-surface-variant tracking-widest">Course Progress</span>
+<span class="text-xs font-bold text-primary">45%</span>
+</div>
+<div class="h-1 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[45%]"></div>
+</div>
+</div>
+<button class="flex items-center gap-2 text-primary hover:opacity-80 transition-opacity font-bold">
+                    Next Lesson
+                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</main>
+<!-- NavigationDrawer (Sidebar) -->
+<aside class="fixed right-0 top-16 h-[calc(100vh-4rem)] w-80 z-20 bg-white dark:bg-slate-900 border-l border-slate-200/15 flex flex-col shadow-[-10px_0_30px_rgba(9,20,38,0.02)]">
+<div class="p-6 border-b border-surface-container-low">
+<span class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1 block">Lesson Progress</span>
+<h2 class="font-headline font-bold text-primary text-lg leading-tight">NR-01 Regulatory Overview</h2>
+<p class="text-xs text-on-surface-variant mt-1">4 of 12 lessons completed</p>
+</div>
+<div class="flex-1 overflow-y-auto p-4 space-y-6 no-scrollbar">
+<!-- Module 1 -->
+<div>
+<h3 class="px-2 mb-3 text-[10px] font-extrabold uppercase tracking-[0.2em] text-on-secondary-container">Module 1: Introduction</h3>
+<div class="space-y-1">
+<button class="w-full flex items-center gap-3 p-3 rounded-lg text-slate-500 hover:bg-slate-50 transition-colors text-left group">
+<span class="material-symbols-outlined text-sm text-green-600" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm font-medium">Foundations of NR-01</span>
+</button>
+<button class="w-full flex items-center gap-3 p-3 rounded-lg text-slate-500 hover:bg-slate-50 transition-colors text-left group">
+<span class="material-symbols-outlined text-sm text-green-600" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm font-medium">History of Compliance</span>
+</button>
+</div>
+</div>
+<!-- Module 2 (Active) -->
+<div>
+<h3 class="px-2 mb-3 text-[10px] font-extrabold uppercase tracking-[0.2em] text-primary">Module 2: Risk Assessment</h3>
+<div class="space-y-1">
+<button class="w-full flex items-center gap-3 p-3 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-medium text-left">
+<span class="material-symbols-outlined text-sm" data-icon="play_circle" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<span class="text-sm">Safety Standards</span>
+</button>
+<button class="w-full flex items-center gap-3 p-3 rounded-lg text-slate-500 hover:bg-slate-50 transition-colors text-left group">
+<span class="material-symbols-outlined text-sm" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="text-sm font-medium">Risk Mitigation</span>
+</button>
+<button class="w-full flex items-center gap-3 p-3 rounded-lg text-slate-500 hover:bg-slate-50 transition-colors text-left group">
+<span class="material-symbols-outlined text-sm" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="text-sm font-medium">Practical Execution</span>
+</button>
+</div>
+</div>
+<!-- Module 3 -->
+<div>
+<h3 class="px-2 mb-3 text-[10px] font-extrabold uppercase tracking-[0.2em] text-on-secondary-container opacity-50">Module 3: Certification</h3>
+<div class="space-y-1">
+<button class="w-full flex items-center gap-3 p-3 rounded-lg text-slate-500/50 cursor-not-allowed text-left">
+<span class="material-symbols-outlined text-sm" data-icon="lock_clock">lock_clock</span>
+<span class="text-sm font-medium">Final Assessment</span>
+</button>
+<button class="w-full flex items-center gap-3 p-3 rounded-lg text-slate-500/50 cursor-not-allowed text-left">
+<span class="material-symbols-outlined text-sm" data-icon="verified">verified</span>
+<span class="text-sm font-medium">Certificate Issuance</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Sidebar Footer -->
+<div class="p-6 bg-surface-container-low border-t border-slate-200/10">
+<div class="bg-white p-4 rounded-xl shadow-sm">
+<p class="text-[10px] font-bold text-on-secondary-container uppercase tracking-widest mb-2">Need Assistance?</p>
+<button class="w-full py-2 bg-primary-fixed text-primary text-xs font-bold rounded-lg flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="support_agent">support_agent</span>
+                        Contact Mentor
+                    </button>
+</div>
+</div>
+</aside>
+</div>
+</body></html>
